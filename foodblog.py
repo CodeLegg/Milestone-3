@@ -41,9 +41,16 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    
+    if form.validate_on_submit():
+        if form.username.data == 'CodeLegg' and form.email.data == 'codelegg@gmail.com' and form.password.data == 'Password12!':
+            flash(f"You've Succsessfly Logged In {form.username.data}!", 'success')
+            return redirect(url_for('home'))
+        else:
+            flash(f'Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 @app.route("/layout")
