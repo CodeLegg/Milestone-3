@@ -27,9 +27,21 @@ posts = [
 def home():
     return render_template('home.html', posts = posts)
 
-@app.route('/about')
-def about():
-    return render_template('about.html', title='')
+@app.route('/meals')
+def meals():
+    return render_template('meals.html', title='BiteBurst - Meals')
+
+@app.route('/receipes')
+def receipes():
+    return render_template('receipes.html', title='BiteBurst - Receipes')
+
+@app.route('/cooking_tips')
+def cooking_tips():
+    return render_template('cooking_tips.html', title='BiteBurst - Cooking Tips')
+
+@app.route('/discussion')
+def discussion():
+    return render_template('discussion.html', title='BiteBurst - Discussion')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -46,7 +58,7 @@ def login():
     form = LoginForm()
     
     if form.validate_on_submit():
-        if form.username.data == 'CodeLegg' and form.email.data == 'codelegg@gmail.com' and form.password.data == 'Password12!':
+        if form.username.data == 'CodeLegg' and form.email.data == 'CodeLegg@gmail.com' and form.password.data == 'Password12!':
             flash(f"You've Succsessfly Logged In {form.username.data}!", 'success')
             return redirect(url_for('home'))
         else:
