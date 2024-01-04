@@ -26,32 +26,49 @@
 
     <header class="p-3 mb-3 border-bottom">
         <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-around ">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-              <h3>FOODIE <i class="fa-solid fa-utensils"></i></h3>
-            </a>
+            <nav class="navbar navbar-expand-lg">
+                <!-- Brand on the left -->
+                <a href="{{ url_for('home')}}" class="navbar-brand d-flex align-items-center mb-0 mb-lg-0 link-body-emphasis text-decoration-none">
+                    <h3 class="logo">BITEBURST <i class="fa-solid fa-utensils"></i></h3>
+                </a>
     
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-              <li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
-              <li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li>
-              <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-            </ul>
-            
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/static/images/user-icon.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                  </a>
-              <li><a href="#" class="nav-link px-2 link-body-emphasis">Login</a></li>
-              <li><a href="#" class="nav-link px-2 link-body-emphasis">Sign Up</a></li>
-            </ul>
+                <!-- Toggler button for smaller screens -->
+                <button class="navbar-toggler mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""><i class="fa-solid fa-bars"></i></span>
+                </button>
     
-           
+                <!-- Combined collapse div for both centered and right-aligned links -->
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <!-- Centered navigation links -->
+                    <div class="navbar-nav mx-auto mb-0 mb-md-0">
+                        <a href="{{ url_for('meals')}}" class="nav-link px-2 mx-2 link-secondary">Meals</a>
+                        <a href="{{ url_for('receipes')}}" class="nav-link px-2 mx-2 link-body-emphasis">Receipes</a>
+                        <a href="{{ url_for('cooking_tips')}}" class="nav-link px-2 mx-2 link-body-emphasis">Cooking Tips</a>
+                        <a href="{{ url_for('discussion')}}" class="nav-link px-2 mx-2 link-body-emphasis">Discussion</a>
+                    </div>
     
-          
-          </div>
+                    <!-- User-related links on the right -->
+                    <div class="navbar-nav">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none " data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="/static/images/user-icon.png" alt="mdo" width="32" height="32"
+                                class="rounded-circle">
+                        </a>
+                        <a href="{{ url_for('login')}}" class="nav-link px-2 mx-2 link-body-emphasis">Login</a>
+                        <a href="{{ url_for('register')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Up</a>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </header>
+    </header>
+    
+    
+    
+    
+    
+    
+    
    
 
       <main role="main" class="container">
