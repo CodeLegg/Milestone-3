@@ -1,9 +1,12 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, flash, redirect
 from forms import RegistrationForm, LoginForm
+from flask_wtf.csrf import CSRFProtect
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '4567bfpahg309bndh357hfpsba245'
 
+csrf = CSRFProtect(app)
 posts = [
     {
         'author': 'Mike Legg',
@@ -20,25 +23,30 @@ posts = [
 
 ]
 
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('home.html', posts = posts)
 
-@app.route('/')
+@app.route('/about')
 def about():
     return render_template('about.html', title='')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    return render_template('register.html', title='Register', form=form)
+
+    if request.method == 'POST' and form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
+
 
 @app.route('/login')
 def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
 
-@app.route("/")
+@app.route("/layout")
 def layout():
     return render_template('layout.html')
 
