@@ -1,0 +1,162 @@
+body {
+  background: #fafafa;
+  color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #444444;
+}
+header {
+  background-color: #171717;
+}
+
+.navbar-nav a {
+  color: #ffffff;
+}
+.navbar-nav a:hover {
+  color: #ff7b00;
+}
+.navbar-nav a.active {
+  color: #ff7b00;
+}
+.navbar-toggler {
+  background-color: hsl(0, 0%, 10%);
+  border: solid 1px #ff7b00;
+  padding: 10px 15px !important;
+  border-radius: 5px;
+}
+
+.navbar-toggler:focus {
+  outline: 1px solid #ff7b00;
+}
+
+.fa-bars {
+  color: white;
+}
+
+.fa-bars:hover {
+  color: #ff7b00;
+}
+.fa-bars:active {
+  color: #ff7b00;
+}
+
+.logo {
+  color: #ffffff;
+}
+.logo:hover {
+  color: #ff7b00;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.btn-form {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.btn-form:hover {
+  background-color: #bc5b00;
+  color: white;
+  border: none;
+}
+.btn-form:focus {
+  background-color: #bc5b00;
+  color: white;
+  border: none;
+}
+
+/* Extra Small devices (phones) */
+@media (max-width: 575.98px) {
+  .rounded-circle {
+    display: none;
+  }
+}
+
+/* Small devices (tablets) */
+@media (min-width: 576px) {
+  .rounded-circle {
+    display: none;
+  }
+}
+
+/* Medium devices (desktops) */
+@media (min-width: 768px) {
+  /* Your styles for medium screens go here */
+}
+
+/* Large devices (desktops) */
+@media (min-width: 992px) {
+  .rounded-circle {
+    display: block;
+  }
+}
+
+/* Extra Large devices (large desktops) */
+@media (min-width: 1200px) {
+  /* Your styles for extra large screens go here */
+}
