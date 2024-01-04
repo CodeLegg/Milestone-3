@@ -22,27 +22,32 @@ posts = [
     }
 
 ]
-
+# HOME PAGE
 @app.route('/home')
 def home():
     return render_template('home.html', posts = posts)
 
+# MEALS PAGE
 @app.route('/meals')
 def meals():
     return render_template('meals.html', title='BiteBurst - Meals')
 
+# RECEIPES PAGE
 @app.route('/receipes')
 def receipes():
     return render_template('receipes.html', title='BiteBurst - Receipes')
 
+# COOKING TIPS PAGE
 @app.route('/cooking_tips')
 def cooking_tips():
     return render_template('cooking_tips.html', title='BiteBurst - Cooking Tips')
 
+# DISCUSSION PAGE
 @app.route('/discussion')
 def discussion():
     return render_template('discussion.html', title='BiteBurst - Discussion')
 
+# SIGN UP/REGISTER PAGE
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -52,7 +57,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
-
+# LOGIN PAGE
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -65,6 +70,7 @@ def login():
             flash(f'Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
+# LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/layout")
 def layout():
     return render_template('layout.html')
