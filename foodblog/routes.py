@@ -93,7 +93,8 @@ def logout():
 @app.route("/profile")
 @login_required
 def profile():
-    return render_template('profile.html', title='Profile')
+    image_file = url_for('static', filename='images/' + current_user.image_file)
+    return render_template('profile.html', title='Profile', image_file=image_file)
 
 # LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/layout")
