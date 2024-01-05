@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo, ValidationError
@@ -84,7 +85,11 @@ class UpdateAccountForm(FlaskForm):
      # FAVORITE FOOD
     favorite_food = StringField('Favorite Food', validators=[DataRequired(), Length(min=2, max=50)])
 
+    # PICTURE
+    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
+
     submit = SubmitField('Update')
+    delete_account = SubmitField('Delete Account')
 
     def validate_username(self, username):
         if username.data != current_user.username: 
@@ -97,3 +102,5 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That email is taken. Please choose a different one.')                                                 
+            
+
