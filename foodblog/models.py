@@ -3,7 +3,7 @@ from foodblog import db, login_manager
 from flask_login import UserMixin
 
 @login_manager.user_loader
-def load_uder(user_id):
+def load_user(user_id):
     return User.query.get(int(user_id))
 
 
