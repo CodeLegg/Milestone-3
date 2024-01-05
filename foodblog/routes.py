@@ -1,3 +1,6 @@
+import os
+import secrets
+from PIL import Image
 from flask import render_template, url_for, request, flash, redirect, request
 from foodblog import app, db, bcrypt
 from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm
@@ -23,31 +26,36 @@ posts = [
 # HOME PAGE
 @app.route('/')
 def home():
-    return render_template('home.html', posts = posts)
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('home.html', image_file=image_file, posts = posts)
 
 # MEALS PAGE
 @app.route('/meals')
 @login_required
 def meals():
-    return render_template('meals.html', title='Meals')
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('meals.html', image_file=image_file, title='Meals')
 
 # RECEIPES PAGE
 @app.route('/receipes')
 @login_required
 def receipes():
-    return render_template('receipes.html', title='Receipes')
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('receipes.html', image_file=image_file, title='Receipes')
 
 # COOKING TIPS PAGE
 @app.route('/cooking_tips')
 @login_required
 def cooking_tips():
-    return render_template('cooking_tips.html', title='Cooking Tips')
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('cooking_tips.html', image_file=image_file, title='Cooking Tips')
 
 # DISCUSSION PAGE
 @app.route('/discussion')
 @login_required
 def discussion():
-    return render_template('discussion.html', title='Discussion')
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('discussion.html', image_file=image_file, title='Discussion')
 
 # SIGN UP/REGISTER PAGE
 @app.route('/register', methods=['GET', 'POST'])
@@ -89,12 +97,29 @@ def logout():
     return redirect(url_for('home'))
    
 
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename) 
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+    output_size = (125,125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+    prev_picture = os.path.join(app.root_path, 'static/profile_pics', current_user.image_file)
+    if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.jpg':
+        os.remove(prev_picture)
+    return picture_fn
+
 # LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
     form = UpdateAccountForm()
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file 
         current_user.username = form.username.data 
         current_user.email = form.email.data
         current_user.favorite_food = form.favorite_food.data
@@ -105,10 +130,16 @@ def profile():
         form.username.data = current_user.username 
         form.email.data = current_user.email
         form.favorite_food.data = current_user.favorite_food
-    image_file = url_for('static', filename='images/' + current_user.image_file)
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('profile.html', title='Profile', image_file=image_file, form=form)
 
 # LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/layout")
 def layout():
     return render_template('layout.html')
+
+# LAYOUT/SITE NAVBAR & CONTENT
+@app.route("/post/new")
+@login_required
+def new_post():
+    return render_template('create_post.html', image_file=image_file, title='New Post')
