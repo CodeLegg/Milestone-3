@@ -1,6 +1,6 @@
 from flask import render_template, url_for, request, flash, redirect, request
 from foodblog import app, db, bcrypt
-from foodblog.forms import RegistrationForm, LoginForm
+from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from foodblog.models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -90,11 +90,23 @@ def logout():
    
 
 # LAYOUT/SITE NAVBAR & CONTENT
-@app.route("/profile")
+@app.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data 
+        current_user.email = form.email.data
+        current_user.favorite_food = form.favorite_food.data
+        db.session.commit()
+        flash('Your account has been updated!', 'success')
+        return redirect(url_for('profile'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username 
+        form.email.data = current_user.email
+        form.favorite_food.data = current_user.favorite_food
     image_file = url_for('static', filename='images/' + current_user.image_file)
-    return render_template('profile.html', title='Profile', image_file=image_file)
+    return render_template('profile.html', title='Profile', image_file=image_file, form=form)
 
 # LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/layout")
