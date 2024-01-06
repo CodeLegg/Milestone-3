@@ -35,6 +35,13 @@ header {
   outline: 1px solid #ff7b00;
 }
 
+.ul-menu{
+  margin-top: 1.39rem;
+  background-color: #171717;
+  border-radius: none;
+  border: none;
+}
+
 .fa-bars {
   color: white;
 }
@@ -130,19 +137,26 @@ a.article-title:hover {
   border: none;
 }
 
+
+.media{flex-wrap: wrap;}
+
 /* Extra Small devices (phones) */
 @media (max-width: 575.98px) {
-  .rounded-circle {
+  .nav-small-profile {
     display: none;
   }
 }
 
 /* Small devices (tablets) */
 @media (min-width: 576px) {
-  .rounded-circle {
+  .nav-small-profile {
     display: none;
   }
+  /* .d-flex{
+    flex-direction: column;
+  } */
 }
+
 
 /* Medium devices (desktops) */
 @media (min-width: 768px) {
@@ -151,8 +165,9 @@ a.article-title:hover {
 
 /* Large devices (desktops) */
 @media (min-width: 992px) {
-  .rounded-circle {
+  .nav-small-profile {
     display: block;
+    cursor:auto;
   }
 }
 
