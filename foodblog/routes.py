@@ -119,12 +119,14 @@ def save_picture(form_picture):
     _, f_ext = os.path.splitext(form_picture.filename) 
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+    form_picture.save(picture_path)
     output_size = (125,125)
     i = Image.open(form_picture)
     i.thumbnail(output_size)
     i.save(picture_path)
     prev_picture = os.path.join(app.root_path, 'static/profile_pics', current_user.image_file)
-    if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.jpg':
+    
+    if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.png':
         os.remove(prev_picture)
     return picture_fn
 
