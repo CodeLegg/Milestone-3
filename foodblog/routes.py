@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, request, flash, redirect, request
 from foodblog import app, db, bcrypt
-from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
 from foodblog.models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -26,35 +26,52 @@ posts = [
 # HOME PAGE
 @app.route('/')
 def home():
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    # Check if the user is authenticated before constructing the image_file URL
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        # Set image_file to None or an empty string when the user is not authenticated
+        image_file = None  # or image_file = ''
     return render_template('home.html', image_file=image_file, posts = posts)
 
 # MEALS PAGE
 @app.route('/meals')
 @login_required
 def meals():
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None
     return render_template('meals.html', image_file=image_file, title='Meals')
 
 # RECEIPES PAGE
 @app.route('/receipes')
 @login_required
 def receipes():
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None    
     return render_template('receipes.html', image_file=image_file, title='Receipes')
 
 # COOKING TIPS PAGE
 @app.route('/cooking_tips')
 @login_required
 def cooking_tips():
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None
     return render_template('cooking_tips.html', image_file=image_file, title='Cooking Tips')
 
 # DISCUSSION PAGE
 @app.route('/discussion')
 @login_required
 def discussion():
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None
     return render_template('discussion.html', image_file=image_file, title='Discussion')
 
 # SIGN UP/REGISTER PAGE
@@ -116,6 +133,7 @@ def save_picture(form_picture):
 @login_required
 def profile():
     form = UpdateAccountForm()
+
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
@@ -130,7 +148,8 @@ def profile():
         form.username.data = current_user.username 
         form.email.data = current_user.email
         form.favorite_food.data = current_user.favorite_food
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+        # Set image_file to None when the user is not authenticated
+        image_file = None if not current_user.is_authenticated else url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('profile.html', title='Profile', image_file=image_file, form=form)
 
 # LAYOUT/SITE NAVBAR & CONTENT
@@ -139,7 +158,16 @@ def layout():
     return render_template('layout.html')
 
 # LAYOUT/SITE NAVBAR & CONTENT
-@app.route("/post/new")
+@app.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
-    return render_template('create_post.html', image_file=image_file, title='New Post')
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None
+        
+    form = PostForm()
+    if form.validate_on_submit():
+        flash('Your post has been created!', 'success')
+        return redirect(url_for('home'))
+    return render_template('create_post.html', image_file=image_file, form=form, title='New Post')
