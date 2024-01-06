@@ -51,9 +51,9 @@
                     <!-- User-related links on the right -->
                     <div class="navbar-nav">
                         {% if current_user.is_authenticated %} 
-                        <a href="#"><img src="{{ image_file }}" alt="mdo" width="32" height="32"class="rounded-circle"></a>
+                        <a class="nav-small-profile" href="#"><img src="{{ image_file }}" alt="mdo" width="32" height="32"class="rounded-circle "></a>
                          <a href="{{ url_for('profile')}}" class="nav-link px-2 mx-2 link-body-emphasis">Profile</a>
-                         <a href="{{ url_for('logout')}}" class="nav-link px-2 mx-2 link-body-emphasis">Logout</a>
+                         <a href="{{ url_for('logout')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Out</a>
                         {% else %}
                             <a href="{{ url_for('login')}}" class="nav-link px-2 mx-2 link-body-emphasis">Login</a>
                             <a href="{{ url_for('register')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Up</a>
