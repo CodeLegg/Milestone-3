@@ -168,8 +168,13 @@ def new_post():
     else:
         image_file = None
         
+
+
     form = PostForm()
     if form.validate_on_submit():
+        post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('home'))
     return render_template('create_post.html', image_file=image_file, form=form, title='New Post')
