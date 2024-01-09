@@ -7,84 +7,59 @@ from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostF
 from foodblog.models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
+def get_image_file():
+    """Helper function to get the image file URL based on user authentication."""
+    if current_user.is_authenticated:
+        return url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        return None
 
-
-# HOME PAGE
 @app.route('/')
 def home():
-    # Check if the user is authenticated before constructing the image_file URL
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        # Set image_file to None or an empty string when the user is not authenticated
-        image_file = None  # or image_file = ''
-    return render_template('home.html', image_file=image_file)
+    return render_template('home.html', image_file=get_image_file())
 
-# MEALS PAGE
 @app.route('/meals')
 @login_required
 def meals():
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None
-    return render_template('meals.html', image_file=image_file, title='Meals')
+    return render_template('meals.html', image_file=get_image_file(), title='Meals')
 
-# RECEIPES PAGE
 @app.route('/receipes')
 @login_required
 def receipes():
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None    
-    return render_template('receipes.html', image_file=image_file, title='Receipes')
+    return render_template('receipes.html', image_file=get_image_file(), title='Receipes')
 
-# COOKING TIPS PAGE
 @app.route('/cooking_tips')
 @login_required
 def cooking_tips():
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None
-    return render_template('cooking_tips.html', image_file=image_file, title='Cooking Tips')
+    return render_template('cooking_tips.html', image_file=get_image_file(), title='Cooking Tips')
 
-# DISCUSSION PAGE
 @app.route('/discussion')
 @login_required
 def discussion():
     posts = Post.query.all()
+    return render_template('discussion.html', image_file=get_image_file(), title='Discussion', posts=posts)
 
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None
-    return render_template('discussion.html', image_file=image_file, title='Discussion', posts = posts)
-
-# SIGN UP/REGISTER PAGE
 @app.route('/register', methods=['GET', 'POST'])
-def register(): 
+def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
 
     if request.method == 'POST' and form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password, favorite_food=form.favorite_food.data )
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password, favorite_food=form.favorite_food.data)
         db.session.add(user)
         db.session.commit()
         flash(f'Your account has been created! You are now able to login', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Sign Up', form=form)
 
-# LOGIN PAGE
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = LoginForm()
-    
+
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
@@ -95,30 +70,27 @@ def login():
             flash(f'Login Unsuccessful. Please check Username Email and Password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-# LOGOUT PAGE
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('home'))
-   
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename) 
+    _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
     form_picture.save(picture_path)
-    output_size = (125,125)
+    output_size = (125, 125)
     i = Image.open(form_picture)
     i.thumbnail(output_size)
     i.save(picture_path)
     prev_picture = os.path.join(app.root_path, 'static/profile_pics', current_user.image_file)
-    
+
     if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.png':
         os.remove(prev_picture)
     return picture_fn
 
-# LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -127,91 +99,72 @@ def profile():
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file 
-        current_user.username = form.username.data 
+            current_user.image_file = picture_file
+        current_user.username = form.username.data
         current_user.email = form.email.data
         current_user.favorite_food = form.favorite_food.data
         db.session.commit()
         flash('Your account has been updated!', 'success')
         return redirect(url_for('profile'))
     elif request.method == 'GET':
-        form.username.data = current_user.username 
+        form.username.data = current_user.username
         form.email.data = current_user.email
         form.favorite_food.data = current_user.favorite_food
-        # Set image_file to None when the user is not authenticated
-        image_file = None if not current_user.is_authenticated else url_for('static', filename='profile_pics/' + current_user.image_file)
+    image_file = get_image_file()
     return render_template('profile.html', title='Profile', image_file=image_file, form=form)
 
-# LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/layout")
 def layout():
     return render_template('layout.html')
 
-# LAYOUT/SITE NAVBAR & CONTENT
 @app.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None
-        
-
-
     form = PostForm()
+    image_file = get_image_file()
+
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('discussion'))
-    return render_template('create_post.html', image_file=image_file, form=form, title='New Post' , legend='New Post')
-
-
-
+    return render_template('create_post.html', image_file=image_file, form=form, title='New Post', legend='New Post')
 
 @app.route("/post/<int:post_id>")
 def post(post_id):
     post = Post.query.get_or_404(post_id)
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None
+    image_file = get_image_file()
     return render_template('post.html', title=post.title, post=post, image_file=image_file)
 
-
-@app.route("/post/<int:post_id>/update" , methods=['GET', 'POST'])
+@app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
+@login_required
 def update_post(post_id):
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
     form = PostForm()
+
     if form.validate_on_submit():
         post.title = form.title.data
         post.content = form.content.data
         db.session.commit()
         flash('Your post has been updated!', 'success')
-        return redirect (url_for('post', post_id=post.id))
+        return redirect(url_for('discussion'))
+
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
-    if current_user.is_authenticated:
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        image_file = None
-    return render_template('create_post.html', image_file=image_file, form=form, title='Update Post', legend='Update Post')
 
-# Assuming you have a delete_post function in your views
+    image_file = get_image_file()
+    return render_template('create_post.html', image_file=image_file, form=form, title='Update Post', legend='Update Post')
 
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
 @login_required
 def delete_post(post_id):
     post = Post.query.get_or_404(post_id)
-    
-    # Check if the current user has permission to delete the post
     if post.author != current_user:
         abort(403)
-
     db.session.delete(post)
     db.session.commit()
     flash('Your post has been deleted!', 'success')
