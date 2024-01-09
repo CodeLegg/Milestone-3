@@ -12,14 +12,13 @@ from flask_login import login_user, current_user, logout_user, login_required
 # HOME PAGE
 @app.route('/')
 def home():
-    posts = Post.query.all()
     # Check if the user is authenticated before constructing the image_file URL
     if current_user.is_authenticated:
         image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     else:
         # Set image_file to None or an empty string when the user is not authenticated
         image_file = None  # or image_file = ''
-    return render_template('home.html', image_file=image_file, posts = posts)
+    return render_template('home.html', image_file=image_file)
 
 # MEALS PAGE
 @app.route('/meals')
@@ -55,11 +54,13 @@ def cooking_tips():
 @app.route('/discussion')
 @login_required
 def discussion():
+    posts = Post.query.all()
+
     if current_user.is_authenticated:
         image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     else:
         image_file = None
-    return render_template('discussion.html', image_file=image_file, title='Discussion')
+    return render_template('discussion.html', image_file=image_file, title='Discussion', posts = posts)
 
 # SIGN UP/REGISTER PAGE
 @app.route('/register', methods=['GET', 'POST'])
