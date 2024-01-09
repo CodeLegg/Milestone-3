@@ -1,31 +1,18 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, url_for, request, flash, redirect, request
+from flask import render_template, url_for, request, flash, redirect, request, abort
 from foodblog import app, db, bcrypt
 from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
 from foodblog.models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
-posts = [
-    {
-        'author': 'Mike Legg',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'Feb 01, 2023'
-    },
-      {
-        'author': 'Mel Lowth',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'Feb 02, 2023'
-    }
 
-]
 
 # HOME PAGE
 @app.route('/')
 def home():
+    posts = Post.query.all()
     # Check if the user is authenticated before constructing the image_file URL
     if current_user.is_authenticated:
         image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
@@ -177,4 +164,38 @@ def new_post():
         db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('home'))
-    return render_template('create_post.html', image_file=image_file, form=form, title='New Post')
+    return render_template('create_post.html', image_file=image_file, form=form, title='New Post' , legend='New Post')
+
+
+
+
+@app.route("/post/<int:post_id>")
+def post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None
+    return render_template('post.html', title=post.title, post=post, image_file=image_file)
+
+
+@app.route("/post/<int:post_id>/update" , methods=['GET', 'POST'])
+def update_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    form = PostForm()
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.content = form.content.data
+        db.session.commit()
+        flash('Your post has been updated!', 'success')
+        return redirect (url_for('post', post_id=post.id))
+    elif request.method == 'GET':
+        form.title.data = post.title
+        form.content.data = post.content
+    if current_user.is_authenticated:
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    else:
+        image_file = None
+    return render_template('create_post.html', image_file=image_file, form=form, title='Update Post', legend='Update Post')
