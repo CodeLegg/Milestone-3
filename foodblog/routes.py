@@ -164,7 +164,7 @@ def new_post():
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('discussion'))
     return render_template('create_post.html', image_file=image_file, form=form, title='New Post' , legend='New Post')
 
 
@@ -200,3 +200,19 @@ def update_post(post_id):
     else:
         image_file = None
     return render_template('create_post.html', image_file=image_file, form=form, title='Update Post', legend='Update Post')
+
+# Assuming you have a delete_post function in your views
+
+@app.route("/post/<int:post_id>/delete", methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    
+    # Check if the current user has permission to delete the post
+    if post.author != current_user:
+        abort(403)
+
+    db.session.delete(post)
+    db.session.commit()
+    flash('Your post has been deleted!', 'success')
+    return redirect(url_for('discussion'))
