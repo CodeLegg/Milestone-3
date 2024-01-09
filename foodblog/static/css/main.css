@@ -119,6 +119,28 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
+.btn-close {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+.btn-update {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
 .btn-form {
   background-color: #ff7b00;
   color: white;
