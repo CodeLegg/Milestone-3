@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, request, flash, redirect, request, abort
 from foodblog import app, db, bcrypt
-from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm, ReplyForm, DeleteCommentForm
 from foodblog.models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -131,11 +131,61 @@ def new_post():
         return redirect(url_for('discussion'))
     return render_template('create_post.html', image_file=image_file, form=form, title='New Post', legend='New Post')
 
-@app.route("/post/<int:post_id>")
+@app.route("/post/<int:post_id>", methods=['GET', 'POST'])
 def post(post_id):
     post = Post.query.get_or_404(post_id)
     image_file = get_image_file()
-    return render_template('post.html', title=post.title, post=post, image_file=image_file)
+
+    comments = Comment.query.filter_by(post_id=post.id, parent_comment_id=None).all()
+
+    comment_form = CommentForm()
+    reply_form = ReplyForm()
+
+    if request.method == 'POST':
+        if 'parent_comment_id' in request.form:
+            # This is a reply
+            parent_comment_id = int(request.form['parent_comment_id'])
+            parent_comment = Comment.query.get_or_404(parent_comment_id)
+
+            if reply_form.validate_on_submit():
+                reply = Comment(content=reply_form.content.data, user_id=current_user.id, post=post, parent_comment=parent_comment)
+                db.session.add(reply)
+                db.session.commit()
+                flash('Your reply has been posted!', 'success')
+                return redirect(url_for('post', post_id=post.id))
+        else:
+            # This is a comment
+            if comment_form.validate_on_submit():
+                comment = Comment(content=comment_form.content.data, user_id=current_user.id, post=post)
+                db.session.add(comment)
+                db.session.commit()
+                flash('Your comment has been posted!', 'success')
+                return redirect(url_for('post', post_id=post.id))
+
+    return render_template('post.html', post=post, comments=comments, comment_form=comment_form, reply_form=reply_form, image_file=image_file)
+
+@app.route("/comment/<int:comment_id>/delete", methods=['POST'])
+@login_required
+def delete_comment(comment_id):
+    comment = Comment.query.get_or_404(comment_id)
+
+    # Check if the current user is the author of the comment
+    if current_user != comment.author:
+        abort(403)
+
+    # Detach the comment from the session before deletion
+    db.session.expunge(comment)    
+
+    db.session.delete(comment)
+    db.session.commit()
+    flash('Your comment has been deleted!', 'success')
+
+    # Redirect back to the post page
+    return redirect(url_for('post', post_id=comment.post_id))
+
+
+
+
 
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
