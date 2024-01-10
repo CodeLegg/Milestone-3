@@ -108,3 +108,14 @@ class PostForm(FlaskForm):
     # CONTENT
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
+
+class CommentForm(FlaskForm):
+    content = TextAreaField('', validators=[DataRequired()])
+    submit = SubmitField('Post Comment')
+
+class ReplyForm(FlaskForm):
+    content = TextAreaField('', validators=[DataRequired()])
+    submit = SubmitField('Post Reply')
+
+class DeleteCommentForm(FlaskForm):
+    submit = SubmitField('Delete Comment')
