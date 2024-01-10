@@ -6,7 +6,7 @@
         <img class="rounded-circle article-img" src=" {{ url_for('static', filename='profile_pics/' + post.author.image_file)}}">
         <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{ post.author.username }}</a>
+                <strong class="mr-2" href="#">{{ post.author.username }}</strong>
                 <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
                 {% if post.author == current_user %}
                 <div>
@@ -39,5 +39,61 @@
       </div>
     </div>
   </div>
+
+<!-- post.html -->
+<h2>Comments</h2>
+<!-- Comment Form -->
+<form class="content-section" method="POST" action="{{ url_for('post', post_id=post.id) }}">
+    {{ comment_form.hidden_tag() }}
+    {{ comment_form.content(size=20, class="custom-textarea", placeholder="Your comment goes here...") }}    <br>
+    {{ comment_form.submit (class="btn-update")}}
+</form>
+
+{% for comment in comments %}
+    <div class="comment">
+        <div>
+            <img class="rounded-circle article-img" src=" {{ url_for('static', filename='profile_pics/' + post.author.image_file)}}">
+            <small> by <strong>{{ comment.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+            <hr>
+            <p>{{ comment.content }}</p>
+        </div>
+
+        <!-- Delete Comment Button -->
+        {% if current_user == comment.author %}
+            <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
+                <button type="submit" class="btn btn-sm btn-danger">Delete Comment</button>
+            </form>
+        {% endif %}
+
+        <!-- Nested replies if applicable -->
+        {% for reply in comment.replies %}
+            <div class="reply" style="margin-left: 20px;">
+                <img class="rounded-circle article-img" src=" {{ url_for('static', filename='profile_pics/' + post.author.image_file)}}">
+            <small> by <strong>{{ comment.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+                <p>{{ reply.content }}</p>
+
+                <!-- Delete Reply Button -->
+                {% if current_user == reply.author %}
+                <form method="POST" action="{{ url_for('delete_comment', comment_id=reply.id) }}">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete Reply</button>
+                </form>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+        <!-- Reply Form -->
+        <form method="POST" action="{{ url_for('post', post_id=post.id) }}">
+            {{ reply_form.hidden_tag() }}
+            <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+            {{ reply_form.content(size=20, class="custom-textarea", placeholder="Your reply goes here...") }}    <br>
+            <br>
+            {{ reply_form.submit(class="btn-update") }}
+        </form>
+    </div>
+{% endfor %}
+
+
+
 
 {% endblock content %}
