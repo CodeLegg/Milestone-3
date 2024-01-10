@@ -197,3 +197,84 @@ a.article-title:hover {
 @media (min-width: 1200px) {
   /* Your styles for extra large screens go here */
 }
+
+/* Comment Section Styles */
+.comment {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.comment p {
+  color: #333333;
+}
+
+/* Delete Button Styles */
+.comment form {
+  margin-top: 10px;
+}
+
+.comment form button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment form button:hover {
+  background-color: #a71d2a;
+}
+
+/* Nested Reply Styles */
+.reply {
+  margin-left: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.reply p {
+  color: #333333;
+}
+
+/* Comment Form Styles */
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+
+.comment-form button {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #bc5b00;
+}
+
+ /* Define a custom class for the textarea */
+ .custom-textarea {
+  width: 100%; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  padding: 10px; /* Add padding for a better look */
+  border: 1px solid #ccc; /* Add a border for visual distinction */
+  border-radius: 5px; /* Add rounded corners for a softer look */
+  resize: vertical; /* Allow vertical resizing */
+}
