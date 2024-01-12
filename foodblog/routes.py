@@ -28,10 +28,7 @@ def meals():
 def receipes():
     return render_template('receipes.html', image_file=get_image_file(), title='Receipes')
 
-@app.route('/cooking_tips')
-@login_required
-def cooking_tips():
-    return render_template('cooking_tips.html', image_file=get_image_file(), title='Cooking Tips')
+
 
 @app.route('/discussion')
 @login_required
