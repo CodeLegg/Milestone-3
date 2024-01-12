@@ -5,8 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" 
-    integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -31,16 +33,18 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <!-- Brand on the left -->
-                <a href="{{ url_for('home')}}" class="navbar-brand d-flex align-items-center mb-0 mb-lg-0 link-body-emphasis text-decoration-none">
+                <a href="{{ url_for('home')}}"
+                    class="navbar-brand d-flex align-items-center mb-0 mb-lg-0 link-body-emphasis text-decoration-none">
                     <h3 class="logo">BiteBurst <i class="fa-solid fa-utensils"></i></h3>
                 </a>
-    
+
                 <!-- Toggler button for smaller screens -->
-                <button class="navbar-toggler mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
-                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler mb-1" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class=""><i class="fa-solid fa-bars"></i></span>
                 </button>
-    
+
                 <!-- Combined collapse div for both centered and right-aligned links -->
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <!-- Centered navigation links -->
@@ -48,87 +52,83 @@
                         <a href="{{ url_for('home')}}" class="nav-link px-2 mx-2 link-secondary">Home</a>
                         <a href="{{ url_for('meals')}}" class="nav-link px-2 mx-2 link-secondary">Meals</a>
                         <a href="{{ url_for('receipes')}}" class="nav-link px-2 mx-2 link-body-emphasis">Receipes</a>
-                        <a href="{{ url_for('discussion')}}" class="nav-link px-2 mx-2 link-body-emphasis">Discussion</a>
+                        <a href="{{ url_for('discussion')}}"
+                            class="nav-link px-2 mx-2 link-body-emphasis">Discussion</a>
                     </div>
-    
+
                     <!-- User-related links on the right -->
                     <div class="navbar-nav">
-                        {% if current_user.is_authenticated %} 
-                        <a class="nav-small-profile" href="#"><img src="{{ image_file }}" alt="mdo" width="32" height="32"class="rounded-circle "></a>
-                         <a href="{{ url_for('profile')}}" class="nav-link px-2 mx-2 link-body-emphasis">Profile</a>
-                         <a href="{{ url_for('logout')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Out</a>
+                        {% if current_user.is_authenticated %}
+                        <a class="nav-small-profile" href="#"><img src="{{ image_file }}" alt="mdo" width="32"
+                                height="32" class="rounded-circle "></a>
+                        <a href="{{ url_for('profile')}}" class="nav-link px-2 mx-2 link-body-emphasis">Profile</a>
+                        <a href="{{ url_for('logout')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Out</a>
                         {% else %}
-                            <a href="{{ url_for('login')}}" class="nav-link px-2 mx-2 link-body-emphasis">Login</a>
-                            <a href="{{ url_for('register')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Up</a>
+                        <a href="{{ url_for('login')}}" class="nav-link px-2 mx-2 link-body-emphasis">Login</a>
+                        <a href="{{ url_for('register')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Up</a>
                         {% endif %}
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-    
-    
-    
-    
-    
-    
-    
-   
-{% if request.endpoint != 'home' %}
-      <main role="main" class="container">
+
+
+
+
+
+
+
+    {% if request.endpoint not in ['home', 'meals', 'receipes', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9', 'card10', 'card11', 'card12'] %}
+
+
+    <main role="main" class="container">
         <div class="row">
-          <div class="col-md-8">
-            {% endif %}
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+            <div class="col-md-8">
                 {% endif %}
-            {% endwith %}
-            {% block content %}{% endblock %}
-          </div>
-            {% if request.endpoint != 'home' %}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+            </div>
+
+            {% if request.endpoint not in ['home', 'meals', 'receipes', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9', 'card10', 'card11', 'card12'] %}
+
             <div class="col-md-4">
                 <div class="content-section">
                     <h3>Quick Links</h3>
-                    <p class='text-muted'>Explore the latest posts, announcements, top rated receipes, and create a post!
+                    <p class='text-muted'>Explore the latest posts, announcements, top rated receipes, and create a
+                        post!
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-light"><a href="">Latest Posts</a></li>
+                            <li class="list-group-item list-group-item-light"><a
+                                    href="{{ url_for('latest_post') }}">Latest Post</a></li>
                             <li class="list-group-item list-group-item-light"><a href="">Announcements</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="">Top Rated Receipes</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{{ url_for('new_post')}}">Create Post</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="">Top Rated Receipe</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{{ url_for('new_post')}}">Create
+                                    Post</a></li>
                         </ul>
                     </p>
                 </div>
             </div>
             {% endif %}
 
-          </div>
         </div>
-      </main>
+        </div>
+    </main>
 
-
-
-
-
-
-  <!-- <div class="dropdown text-end">
-              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-              </a>
-              <ul class="dropdown-menu text-small" style="">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-              </ul>
-            </div> -->
-
-
+    <footer>
+        <ul>
+            <li><a href="https://github.com/your-github-profile" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://discord.gg/your-discord-server" target="_blank"><i class="fab fa-discord"></i></a></li>
+        </ul>
+    </footer>
 
 
 
