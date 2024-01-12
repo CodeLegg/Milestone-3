@@ -1,19 +1,83 @@
-{% extends "layout.html "%}
+{% extends "layout.html" %}
 
 {% block content %}
 
-{% for post in posts %}
-    <article class="media content-section">
-        <img class="rounded-circle article-img" src=" {{ url_for('static', filename='profile_pics/' + post.author.image_file)}}">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">{{ post.author.username }}</a>
-                <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+<body class="home-page">
+    <div class="grid-container container">
+        <a href=""class="grid-item flex-box">
+                <div class="flex-item">
+                    <h2 class="title-top">Fish Receipe</h2>
+                    <h2 class="title-bottom">The Ultimate Fish Sauce Receipe</h2>
+                </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Chicken Receipes</h2>
+                <h2 class="title-bottom">Thai Basil Chicken</h2>
             </div>
-            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-        </div>
-    </article>
-{% endfor %}
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Chinese Receipes</h2>
+                <h2 class="title-bottom">The Ultimate Hot Pot Dinner</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Taco Receipes</h2>
+                <h2 class="title-bottom">The Finest Taco Receipe</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Sweet Treat Receipes</h2>
+                <h2 class="title-bottom">Mint Snowman Marshmallows</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Baking Receipes</h2>
+                <h2 class="title-bottom">Gooey Chocolate Cookies</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Sweet Treat Receipes</h2>
+                <h2 class="title-bottom">Hot Chocolate Heaven</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Meat Receipes</h2>
+                <h2 class="title-bottom">Honey Baked Ham Receipes</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Baking Receipes</h2>
+                <h2 class="title-bottom">Cinnamon Rolls</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Chicken Receipes</h2>
+                <h2 class="title-bottom">Teriyaki Chicken</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Chicken Receipes</h2>
+                <h2 class="title-bottom">Honey Garlic Chicken</h2>
+            </div>
+        </a>
+        <a href="" class="grid-item flex-box">
+            <div class="flex-item">
+                <h2 class="title-top">Pasta Receipes</h2>
+                <h2 class="title-bottom">Marvellous Mac & Cheese</h2>
+            </div>
+        </a>
 
-{% endblock content %}
+    </div>
+</body>
+
+{% endblock %}
