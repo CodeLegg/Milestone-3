@@ -128,6 +128,17 @@ def new_post():
         return redirect(url_for('discussion'))
     return render_template('create_post.html', image_file=image_file, form=form, title='New Post', legend='New Post')
 
+
+@app.route("/latest_post", methods=['GET'])
+def latest_post():
+    latest_post = Post.query.order_by(Post.id.desc()).first()
+    if latest_post:
+        return redirect(url_for('post', post_id=latest_post.id))
+    else:
+        # Handle the case where there are no posts
+        flash('No posts available.', 'warning')
+        return redirect(url_for('discussion'))
+
 @app.route("/post/<int:post_id>", methods=['GET', 'POST'])
 def post(post_id):
     post = Post.query.get_or_404(post_id)
