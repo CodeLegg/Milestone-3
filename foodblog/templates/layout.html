@@ -32,7 +32,7 @@
             <nav class="navbar navbar-expand-lg">
                 <!-- Brand on the left -->
                 <a href="{{ url_for('home')}}" class="navbar-brand d-flex align-items-center mb-0 mb-lg-0 link-body-emphasis text-decoration-none">
-                    <h3 class="logo">BITEBURST <i class="fa-solid fa-utensils"></i></h3>
+                    <h3 class="logo">BiteBurst <i class="fa-solid fa-utensils"></i></h3>
                 </a>
     
                 <!-- Toggler button for smaller screens -->
@@ -45,6 +45,7 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <!-- Centered navigation links -->
                     <div class="navbar-nav mx-auto mb-0 mb-md-0">
+                        <a href="{{ url_for('home')}}" class="nav-link px-2 mx-2 link-secondary">Home</a>
                         <a href="{{ url_for('meals')}}" class="nav-link px-2 mx-2 link-secondary">Meals</a>
                         <a href="{{ url_for('receipes')}}" class="nav-link px-2 mx-2 link-body-emphasis">Receipes</a>
                         <a href="{{ url_for('discussion')}}" class="nav-link px-2 mx-2 link-body-emphasis">Discussion</a>
@@ -56,7 +57,6 @@
                         <a class="nav-small-profile" href="#"><img src="{{ image_file }}" alt="mdo" width="32" height="32"class="rounded-circle "></a>
                          <a href="{{ url_for('profile')}}" class="nav-link px-2 mx-2 link-body-emphasis">Profile</a>
                          <a href="{{ url_for('logout')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Out</a>
-                         <a href="{{ url_for('new_post')}}" class="nav-link px-2 mx-2 link-body-emphasis">Create Post</a>
                         {% else %}
                             <a href="{{ url_for('login')}}" class="nav-link px-2 mx-2 link-body-emphasis">Login</a>
                             <a href="{{ url_for('register')}}" class="nav-link px-2 mx-2 link-body-emphasis">Sign Up</a>
@@ -93,13 +93,13 @@
             {% if request.endpoint != 'home' %}
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <p class='text-muted'>You can put any information here you'd like.
+                    <h3>Quick Links</h3>
+                    <p class='text-muted'>Explore the latest posts, announcements, top rated receipes, and create a post!
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">Latest Posts</li>
-                            <li class="list-group-item list-group-item-light">Announcements</li>
-                            <li class="list-group-item list-group-item-light">Calendars</li>
-                            <li class="list-group-item list-group-item-light">etc</li>
+                            <li class="list-group-item list-group-item-light"><a href="">Latest Posts</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="">Announcements</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="">Top Rated Receipes</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{{ url_for('new_post')}}">Create Post</a></li>
                         </ul>
                     </p>
                 </div>
