@@ -14,6 +14,22 @@ def get_image_file():
     else:
         return None
 
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+    form_picture.save(picture_path)
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+    prev_picture = os.path.join(app.root_path, 'static/profile_pics', current_user.image_file)
+
+    if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.png':
+        os.remove(prev_picture)
+    return picture_fn
+
 @app.route('/')
 def home():
     return render_template('home.html', image_file=get_image_file())
@@ -27,7 +43,6 @@ def meals():
 @login_required
 def receipes():
     return render_template('receipes.html', image_file=get_image_file(), title='Receipes')
-
 
 
 @app.route('/discussion')
@@ -72,21 +87,6 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
-    form_picture.save(picture_path)
-    output_size = (125, 125)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
-    prev_picture = os.path.join(app.root_path, 'static/profile_pics', current_user.image_file)
-
-    if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.png':
-        os.remove(prev_picture)
-    return picture_fn
 
 @app.route("/profile", methods=['GET', 'POST'])
 @login_required
@@ -181,9 +181,6 @@ def delete_comment(comment_id):
     return redirect(url_for('post', post_id=comment.post_id))
 
 
-
-
-
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
@@ -216,3 +213,4 @@ def delete_post(post_id):
     db.session.commit()
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('discussion'))
+
