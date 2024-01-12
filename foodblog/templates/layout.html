@@ -27,7 +27,7 @@
 
 <body>
 
-    <header class="p-3 mb-3 border-bottom">
+    <header class="p-3 mb-3">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <!-- Brand on the left -->
@@ -74,10 +74,11 @@
     
     
    
-
+{% if request.endpoint != 'home' %}
       <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
+            {% endif %}
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
