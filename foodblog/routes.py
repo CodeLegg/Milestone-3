@@ -225,3 +225,66 @@ def delete_post(post_id):
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('discussion'))
 
+
+
+# RECEIPE PAGES
+
+@app.route('/card1')
+@login_required
+def card1():
+    return render_template('card1.html', image_file=get_image_file(), title='Fish Receipe')
+
+@app.route('/card2')
+@login_required
+def card2():
+    return render_template('card2.html', image_file=get_image_file(), title='Chicken Receipe')
+
+@app.route('/card3')
+@login_required
+def card3():
+    return render_template('card3.html', image_file=get_image_file(), title='Chinese Receipe')
+
+@app.route('/card4')
+@login_required
+def card4():
+    return render_template('card4.html', image_file=get_image_file(), title='Taco Receipe')
+
+@app.route('/card5')
+@login_required
+def card5():
+    return render_template('card5.html', image_file=get_image_file(), title='Sweet Treat Receipe')
+
+@app.route('/card6')
+@login_required
+def card6():
+    return render_template('card6.html', image_file=get_image_file(), title='Baking Receipe')
+
+@app.route('/card7')
+@login_required
+def card7():
+    return render_template('card7.html', image_file=get_image_file(), title='Sweet Treat Receipe')
+
+@app.route('/card8')
+@login_required
+def card8():
+    return render_template('card8.html', image_file=get_image_file(), title='Meat Receipe')
+
+@app.route('/card9')
+@login_required
+def card9():
+    return render_template('card9.html', image_file=get_image_file(), title='Baking Receipe')
+
+@app.route('/card10')
+@login_required
+def card10():
+    return render_template('card10.html', image_file=get_image_file(), title='Chicken Receipe')
+
+@app.route('/card11')
+@login_required
+def card11():
+    return render_template('card11.html', image_file=get_image_file(), title='Chicken Receipe')
+
+@app.route('/card12')
+@login_required
+def card12():
+    return render_template('card12.html', image_file=get_image_file(), title='Pasta Receipe')
