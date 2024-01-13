@@ -424,7 +424,6 @@ a.article-title:hover {
   gap: 10px;
 }
 
-
 /* recipe blog */
 
 .blog-bg {
@@ -433,13 +432,32 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
-
-.blog-post-banner{
-font-size: 30px;
-background-color: rgb(255, 123, 0, 0.6);
+.blog-bg-card-2 {
+  background-image: url("../images/thai-basil-chicken_7196w.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.blog-bg-card-3 {
+  background-image: url("../images/hot-pot-8281w-2048x1366.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
 }
 
-.underline{
+.pic-title {
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 2px #171717;
+}
+
+
+.blog-post-banner {
+  font-size: 30px;
+  background-color: rgb(255, 123, 0, 0.6);
+}
+
+.underline {
   text-decoration: underline;
 }
 /* footer */
