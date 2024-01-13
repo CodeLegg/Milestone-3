@@ -444,6 +444,12 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
+.blog-bg-card-4 {
+  background-image: url("../images/homemade-birria-tacos-recipe-3273w.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
 
 .pic-title {
   font-weight: 900;
