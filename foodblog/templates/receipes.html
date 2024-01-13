@@ -1,103 +1,128 @@
-{% extends "layout.html "%}
+{% extends "layout.html" %}
 
 {% block content %}
-    <h1 class="page-title">Receipes Page</h1>
+    <h1 class="page-title underline">Recipes Page</h1>
     <div class="grid-card container-two-grid">
+        
+        <!-- Card 1 -->
         <div class="card m-3" style="width: 18rem;">
             <img src="../static/images/fish-sauce-3692w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card1')}}" class="btn btn-form">Go somewhere</a>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Fish Sauce</h5>
+                <p class="card-text">An essential condiment in Southeast Asian cuisine, fish sauce adds a depth of umami flavor to various dishes.</p>
+                <a href="{{ url_for('card1')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 2 -->
         <div class="card m-3" style="width: 18rem;">
             <img src="../static/images/thai-basil-chicken_7196w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card2')}}" class="btn btn-form">Go somewhere</a>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Thai Basil Chicken</h5>
+                <p class="card-text">A flavorful Thai stir-fry dish featuring tender chicken, aromatic basil, and a perfect balance of sweet and savory flavors.</p>
+                <a href="{{ url_for('card2')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 3 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/fish-sauce-3692w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card3')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/hot-pot-8281w-2048x1366.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Hot Pot Dinner</h5>
+                <p class="card-text">A communal and customizable dining experience where individuals cook a variety of ingredients in a shared pot of simmering broth.</p>
+                <a href="{{ url_for('card3')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 4 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/thai-basil-chicken_7196w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card4')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/homemade-birria-tacos-recipe-3273w.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Taco Recipe</h5>
+                <p class="card-text">A classic Mexican delight, tacos are a versatile dish filled with seasoned meat, fresh vegetables, and vibrant salsa.</p>
+                <a href="{{ url_for('card4')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 5 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/fish-sauce-3692w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card5')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/mint-marshmallow-snowmans-6-2w.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Mint Snowmen</h5>
+                <p class="card-text">Adorable marshmallow treats shaped like snowmen, featuring a hint of mint for a festive twist.</p>
+                <a href="{{ url_for('card5')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 6 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/thai-basil-chicken_7196w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card6')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/brown-butter-chocolate-chip-cookies-5411w-2-1024x683.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Chocolate Cookies</h5>
+                <p class="card-text">Indulgent chocolate cookies with a gooey and fudgy center, perfect for satisfying your sweet tooth.</p>
+                <a href="{{ url_for('card6')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 7 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/fish-sauce-3692w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card7')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/hot-chocolate-bombs-7604w-2.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Hot Chocolate</h5>
+                <p class="card-text">A delightful treat where a chocolate shell is filled with cocoa mix and marshmallows, creating a decadent cup of hot chocolate when dissolved in hot milk.</p>
+                <a href="{{ url_for('card7')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 8 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/thai-basil-chicken_7196w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card8')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/honey-baked-ham-8357w.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Honey Baked Ham</h5>
+                <p class="card-text">A succulent ham glazed with honey and other savory spices, creating a deliciously sweet and savory flavor profile.</p>
+                <a href="{{ url_for('card8')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 9 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/fish-sauce-3692w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card9')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/tiktok-cinnamon-rolls-3535w.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Cinnamon Rolls</h5>
+                <p class="card-text">Soft and fluffy rolls filled with cinnamon and sugar, topped with a luscious cream cheese frosting.</p>
+                <a href="{{ url_for('card9')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 10 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/thai-basil-chicken_7196w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card10')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/teriyaki-chicken-8201w-1024x683.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Teriyaki Chicken</h5>
+                <p class="card-text">Grilled or pan-seared chicken glazed with a rich and savory teriyaki sauce, offering a perfect combination of sweetness and umami.</p>
+                <a href="{{ url_for('card10')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 11 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/fish-sauce-3692w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card11')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/honey-garlic-chicken-3370w-1024x683.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Honey Garlic Chicken</h5>
+                <p class="card-text">Chicken cooked to perfection in a delectable honey garlic sauce, striking a balance between sweet and savory.</p>
+                <a href="{{ url_for('card11')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
+        <!-- Card 12 -->
         <div class="card m-3" style="width: 18rem;">
-            <img src="../static/images/thai-basil-chicken_7196w.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{{ url_for('card12')}}" class="btn btn-form">Go somewhere</a>
+            <img src="../static/images/velveeta-mac-and-cheese-6989w-1024x683.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Mac & Cheese</h5>
+                <p class="card-text">Creamy and cheesy macaroni pasta, a comfort food classic loved by all ages for its simple yet satisfying taste.</p>
+                <a href="{{ url_for('card12')}}" class="btn btn-form mt-auto">Click Me</a>
             </div>
-          </div>
+        </div>
+
     </div>
 {% endblock content %}
