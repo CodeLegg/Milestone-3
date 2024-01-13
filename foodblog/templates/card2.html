@@ -6,11 +6,12 @@
 <main class="container">
     <div class="p-4 p-md-5 mb-4 text-black fw-bold rounded bg-dark blog-bg">
         <div class="col-md-6 px-0">
-            <h2 class="display-4 fst-italic">Title of a longer featured blog post</h2>
+            <h2 class="display-4 fst-italic">The Culinary Masterpiece: Crafting the Ultimate Fish Sauce Elixir</h2>
             <p class="lead my-3"><strong class="blog-post-banner">
-                Multiple lines of text that form the lede, informing new readers quickly and
-                    efficiently about what’s most interesting in this post’s contents.
-            </strong></p>
+                    Dive into the rich and flavorful world of fish sauce, an indispensable gem in Southeast Asian
+                    cuisine. Uncover the secrets, nuances, and culinary wonders as we embark on a journey to explore the
+                    essence of this umami elixir.
+                </strong></p>
         </div>
     </div>
 
@@ -26,7 +27,7 @@
                         family. Simple to make and impossible to resist, this recipe will become a household favorite.
                         Get ready to elevate your baking game with these chewy, gooey, and utterly delicious chocolate
                         cookies..</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+                    <a href="{{ url_for('card6')}}" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                     <svg class="bd-placeholder-img" width="250" height="250" role="img"
@@ -50,7 +51,7 @@
 
             <article class="blog-post">
                 <h2 class="blog-post-title">About The Receipe</h2>
-                <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
+                <p class="blog-post-meta">January 13, 2024 by <strong class="blog-post-banner">CodeLegg</strong></p>
 
                 <p>Fish sauce, a cornerstone of Southeast Asian cuisine, has been celebrated for centuries for its
                     unique ability to elevate the savory flavors in dishes. While store-bought fish sauce is readily
@@ -102,47 +103,66 @@
                     <li>1 cup of palm sugar (or brown sugar as a substitute)</li>
                     <li>Clean glass jars with tight-fitting lids</li>
                 </ul>
-                
+
                 <h2>Instructions:</h2>
                 <br>
                 <ul>
                     <li>
                         <h4>Selecting the Right Fish:</h4>
-                        <p>Begin by choosing fresh, high-quality fish. Anchovies are a popular choice due to their robust flavor, but you can experiment by combining anchovies with mackerel for a more complex profile.</p>
+                        <p>Begin by choosing fresh, high-quality fish. Anchovies are a popular choice due to their
+                            robust flavor, but you can experiment by combining anchovies with mackerel for a more
+                            complex profile.</p>
                     </li>
-                
+
                     <li>
                         <h4>Prepping the Fish:</h4>
-                        <p>Rinse the fish thoroughly under cold water to remove any impurities. If using whole fish, gut and clean them, removing the heads and tails.</p>
+                        <p>Rinse the fish thoroughly under cold water to remove any impurities. If using whole fish, gut
+                            and clean them, removing the heads and tails.</p>
                     </li>
-                
+
                     <li>
                         <h4>Layering with Salt:</h4>
-                        <p>In a clean, non-reactive bowl, layer the cleaned fish with sea salt. Start with a layer of salt, followed by a layer of fish, and repeat until all the fish are covered. Let this mixture sit for 24-48 hours, allowing the salt to extract moisture from the fish.</p>
+                        <p>In a clean, non-reactive bowl, layer the cleaned fish with sea salt. Start with a layer of
+                            salt, followed by a layer of fish, and repeat until all the fish are covered. Let this
+                            mixture sit for 24-48 hours, allowing the salt to extract moisture from the fish.</p>
                     </li>
-                
+
                     <li>
                         <h4>Fermentation:</h4>
-                        <p>After the initial salting period, transfer the fish-salt mixture to the glass jars, ensuring the layers are intact. Add water to fully submerge the fish. Seal the jars tightly and let them ferment in a cool, dark place for at least 6 months. Shake the jars occasionally to promote even fermentation.</p>
+                        <p>After the initial salting period, transfer the fish-salt mixture to the glass jars, ensuring
+                            the layers are intact. Add water to fully submerge the fish. Seal the jars tightly and let
+                            them ferment in a cool, dark place for at least 6 months. Shake the jars occasionally to
+                            promote even fermentation.</p>
                     </li>
-                
+
                     <li>
                         <h4>Straining:</h4>
-                        <p>Once the fermentation period is complete, strain the liquid from the solids using a fine mesh sieve or cheesecloth. The resulting liquid is your homemade fish sauce.</p>
+                        <p>Once the fermentation period is complete, strain the liquid from the solids using a fine mesh
+                            sieve or cheesecloth. The resulting liquid is your homemade fish sauce.</p>
                     </li>
-                
+
                     <li>
                         <h4>Sweetening the Sauce:</h4>
-                        <p>In a separate pot, dissolve palm sugar (or brown sugar) in water over low heat to create a simple syrup. Allow it to cool before combining it with the fish sauce. Adjust the sweetness to your liking.</p>
+                        <p>In a separate pot, dissolve palm sugar (or brown sugar) in water over low heat to create a
+                            simple syrup. Allow it to cool before combining it with the fish sauce. Adjust the sweetness
+                            to your liking.</p>
                     </li>
-                
+
                     <li>
                         <h4>Bottling and Storage:</h4>
-                        <p>Pour the fish sauce into clean glass bottles, sealing them tightly. Store the bottles in the refrigerator, and your homemade fish sauce will last for several months.</p>
+                        <p>Pour the fish sauce into clean glass bottles, sealing them tightly. Store the bottles in the
+                            refrigerator, and your homemade fish sauce will last for several months.</p>
                     </li>
                 </ul>
-                
-                
+                <br>
+                <h2>Conclusion:</h2>
+                <p>
+                    Congratulations! You've just created the ultimate fish sauce, a labor of love that will undoubtedly add
+                    depth and complexity to your culinary creations. Experiment with different ratios of fish and salt, and
+                    tailor the sweetness to match your taste preferences. Embrace the ancient art of fish sauce making, and
+                    revel in the satisfaction of having a truly unique condiment in your kitchen arsenal.
+                </p>
+
         </div>
 
         <div class="col-md-4">
@@ -158,7 +178,7 @@
                                     <li class="list-group-item list-group-item-light"><a
                                             href="{{ url_for('latest_post') }}">Latest Post</a></li>
                                     <li class="list-group-item list-group-item-light"><a href="">Announcements</a></li>
-                                    <li class="list-group-item list-group-item-light"><a href="">Top Rated Receipe</a>
+                                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('card6')}}">Top Rated Receipe</a>
                                     </li>
                                     <li class="list-group-item list-group-item-light"><a
                                             href="{{ url_for('new_post')}}">Create
@@ -170,19 +190,21 @@
                 </div>
 
                 <div class="p-4">
-                    <h4 class="fst-italic">Archives</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, error libero consequatur
-                        cumque ullam fuga facilis? Optio aspernatur excepturi quaerat porro praesentium distinctio
-                        mollitia maiores adipisci, saepe accusamus possimus quis.
+                    <h4 class="fst-italic">Cooking Tip:</h4>
+                    <p>To elevate the umami profile of your dishes, try this cooking tip with fish sauce: instead of
+                        adding salt directly, incorporate fish sauce sparingly during the cooking process. The saltiness
+                        of fish sauce intensifies as it reduces, providing a nuanced and savory depth to your recipes.
+                        Start with a small amount and adjust to taste, unlocking a world of rich and complex flavors in
+                        your culinary creations.
                     </p>
                 </div>
 
                 <div class="p-4">
                     <h4 class="fst-italic">Elsewhere</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/">Instagram</a></li>
+                        <li><a href="https://twitter.com/?lang=en">Twitter</a></li>
+                        <li><a href="https://en-gb.facebook.com/">Facebook</a></li>
                     </ol>
                 </div>
             </div>
