@@ -8,17 +8,19 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* BODY STYLES */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
 }
-
+ /* MAIN STYLES */
 main {
   flex: 1; /* This will make sure it takes up all available space */
 }
 
+/*  H STYLES */
 h1,
 h2,
 h3,
@@ -27,6 +29,28 @@ h5,
 h6 {
   color: #444444;
 }
+/* FOOTER */
+
+footer {
+  background-color: #171717;
+  margin-top: auto; /* Push the footer to the bottom */
+}
+footer ul {
+  background-color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  letter-spacing: 20px;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+footer i {
+  color: white;
+  padding: 20px;
+}
+
+/* NAVIGATION STYLES */
 header {
   background-color: #171717;
   border: none;
@@ -52,13 +76,6 @@ header {
   outline: 1px solid #ff7b00;
 }
 
-/* .ul-menu {
-  margin-top: 1.39rem;
-  background-color: #171717;
-  border-radius: none;
-  border: none;
-} */
-
 .fa-bars {
   color: white;
 }
@@ -79,66 +96,7 @@ header {
 .logo:hover {
   color: #ff7b00;
 }
-
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
-}
-
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-
-.article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #ff7b00;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3;
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
-}
-
+/* BUTTON STYLES */
 .btn-close {
   background-color: #ff7b00;
   color: white;
@@ -179,97 +137,13 @@ a.article-title:hover {
   border: none;
 }
 
-.media {
-  flex-wrap: wrap;
-}
-
-/* COMMENT SECTION */
-/* Comment Section Styles */
-.comment {
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.comment p {
-  color: #333333;
-}
-
-/* Delete Button Styles */
-.comment form {
-  margin-top: 10px;
-}
-
-.comment form button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.comment form button:hover {
-  background-color: #a71d2a;
-}
-
-/* Nested Reply Styles */
-.reply {
-  margin-left: 20px;
-  background-color: #f8f8f8;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.reply p {
-  color: #333333;
-}
-
-/* Comment Form Styles */
-.comment-form {
-  margin-top: 20px;
-}
-
-.comment-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-}
-
-.comment-form button {
-  background-color: #ff7b00;
-  color: white;
-  border: none;
+/* CONTAINER & SECTION */
+.content-section {
+  background: #ffffff;
   padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.comment-form button:hover {
-  background-color: #bc5b00;
-}
-
-/* Define a custom class for the textarea */
-.custom-textarea {
-  width: 100%; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
-  padding: 10px; /* Add padding for a better look */
-  border: 1px solid #ccc; /* Add a border for visual distinction */
-  border-radius: 5px; /* Add rounded corners for a softer look */
-  resize: vertical; /* Allow vertical resizing */
-}
-
-/* HOME PAGE */
-.home-page {
-  background-color: #171717;
-  width: 100%;
-  height: 100vh;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
 }
 .container-two {
   width: 100%;
@@ -278,6 +152,13 @@ a.article-title:hover {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+/* HOME PAGE & GRID */
+.home-page {
+  background-color: #171717;
+  width: 100%;
+  height: 100vh;
 }
 
 .grid-container {
@@ -396,6 +277,141 @@ a.article-title:hover {
   padding: 5px;
 }
 
+/* DISSCUSSION/POST ARTICLE  */
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #ff7b00;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.media {
+  flex-wrap: wrap;
+}
+
+
+
+/* COMMENT SECTION */
+.comment {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.comment p {
+  color: #333333;
+}
+
+/* Delete Button Styles */
+.comment form {
+  margin-top: 10px;
+}
+
+.comment form button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment form button:hover {
+  background-color: #a71d2a;
+}
+
+/* Nested Reply Styles */
+.reply {
+  margin-left: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.reply p {
+  color: #333333;
+}
+
+/* Comment Form Styles */
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+
+.comment-form button {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #bc5b00;
+}
+.custom-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+/* SIDEBAR STYLES */
 .list-group a {
   text-decoration: none;
   color: #444444;
@@ -405,10 +421,7 @@ a.article-title:hover {
   color: #ff7b00;
 }
 
-.page-title {
-  display: flex;
-  justify-content: center;
-}
+/* RECEIPES CARD GRID & CONTAINER */
 .container-two-grid {
   max-width: 1900px;
   padding-right: 15px;
@@ -424,8 +437,29 @@ a.article-title:hover {
   gap: 10px;
 }
 
-/* recipe blog */
+/* RECEIPE CARD1-12 TITLE AND TEXT */
 
+.page-title {
+  display: flex;
+  justify-content: center;
+}
+
+.pic-title {
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 2px #171717;
+}
+
+.blog-post-banner {
+  font-size: 30px;
+  background-color: rgb(255, 123, 0, 0.6);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* RECEIPE CARD1-12 PAGES BACKGROUND */
 .blog-bg {
   background-image: url("../images/fish-sauce-3692w.png");
   background-size: cover;
@@ -462,41 +496,11 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
-
-.pic-title {
-  font-weight: 900;
-  color: white;
-  text-shadow: 2px 2px 2px #171717;
-}
-
-
-.blog-post-banner {
-  font-size: 30px;
-  background-color: rgb(255, 123, 0, 0.6);
-}
-
-.underline {
-  text-decoration: underline;
-}
-/* footer */
-
-footer {
-  background-color: #171717;
-  margin-top: auto; /* Push the footer to the bottom */
-}
-footer ul {
-  background-color: #171717;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  letter-spacing: 20px;
-  font-size: 30px;
-  margin-bottom: 0;
-}
-footer i {
-  color: white;
-  padding: 20px;
+.blog-bg-card-7 {
+  background-image: url("../images/brown-butter-chocolate-chip-cookies-5411w-2-1024x683.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
 }
 
 /* Extra Small devices (phones) */
