@@ -450,6 +450,12 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
+.blog-bg-card-5 {
+  background-image: url("../images/mint-marshmallow-snowmans-6-2w.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
 
 .pic-title {
   font-weight: 900;
