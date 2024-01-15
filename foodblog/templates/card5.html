@@ -1,16 +1,21 @@
 {% extends "layout.html "%}
 
 {% block content %}
-<h1 class="page-title underline">The Ultimate Fish Sauce Receipe</h1>
+<h1 class="page-title underline">Mint Snowmen: A Festive Marshmallow Treat</h1>
 
 <main class="container">
-    <div class="p-4 p-md-5 mb-4 text-black fw-bold rounded bg-dark blog-bg">
+    <div class="p-4 p-md-5 mb-4 text-white fw-bold rounded bg-dark blog-bg-card-5">
         <div class="col-md-6 px-0">
-            <h2 class="display-4 fst-italic">Title of a longer featured blog post</h2>
+            <h2 class="display-4 fst-italic pic-title">Winter Wonderland Delight: Mint Snowman Marshmallow Magic
+            </h2>
             <p class="lead my-3"><strong class="blog-post-banner">
-                Multiple lines of text that form the lede, informing new readers quickly and
-                    efficiently about what’s most interesting in this post’s contents.
-            </strong></p>
+                    Dive into the world of culinary artistry as we uncover the secrets to crafting the perfect mint
+                    snowman marshmallow. Much like sculpting a miniature winter scene, these marshmallow delights
+                    showcase not only the freshness of mint but also the joy of imaginative dessert-making. From their
+                    adorable appearances to the burst of minty flavor, each snowman is a testament to the creativity
+                    that elevates ordinary marshmallows into extraordinary, edible masterpieces. Get ready to embark on
+                    a journey where taste and art seamlessly intertwine.
+                </strong></p>
         </div>
     </div>
 
@@ -26,7 +31,7 @@
                         family. Simple to make and impossible to resist, this recipe will become a household favorite.
                         Get ready to elevate your baking game with these chewy, gooey, and utterly delicious chocolate
                         cookies..</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+                    <a href="{{ url_for('card6')}}" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                     <svg class="bd-placeholder-img" width="250" height="250" role="img"
@@ -45,104 +50,131 @@
     <div class="row g-5">
         <div class="col-md-8">
             <h3 class="pb-4 mb-4 fst-italic border-bottom underline">
-                Crafting the Ultimate Fish Sauce at Home
+                Minty Mischief Marshmallows: Snowman Edition
             </h3>
 
             <article class="blog-post">
                 <h2 class="blog-post-title">About The Receipe</h2>
-                <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
+                <p class="blog-post-meta">January 13, 2024 by <strong class="blog-post-banner">CodeLegg</strong></p>
 
-                <p>Fish sauce, a cornerstone of Southeast Asian cuisine, has been celebrated for centuries for its
-                    unique ability to elevate the savory flavors in dishes. While store-bought fish sauce is readily
-                    available, there's nothing quite like the satisfaction of crafting your own at home. In this blog
-                    post, we'll guide you through the process of making the ultimate fish sauce – a rich, umami-packed
-                    condiment that will undoubtedly become a staple in your culinary repertoire.</p>
+                <p>
+                    Mint Snowman Marshmallows, whimsical and delightful, have become a cherished treat that transcends
+                    seasons, bringing a touch of magic to every occasion. Join us on a sweet adventure as we explore the
+                    art of crafting these adorable marshmallow snowmen – a culinary creation that promises to infuse
+                    your gatherings with festive joy and minty freshness.
+                </p>
                 <hr>
-                <p>Choosing the right fish is the first crucial step in the quest for the perfect fish sauce. Anchovies,
-                    with their bold and intense flavor, are a popular choice, while the addition of mackerel can bring
-                    an extra layer of complexity. Opting for high-quality, fresh fish ensures a superior end product, so
-                    take your time to source the best ingredients available. This mindful selection sets the stage for a
-                    sauce that captures the essence of the ocean and imparts a distinctive umami note to your dishes.
+                <p>
+                    At the heart of crafting these charming delights is the meticulous selection of high-quality
+                    ingredients. Much like the precision required in any culinary masterpiece, each component
+                    contributes to the overall experience. From the invigorating minty flavor to the soft and fluffy
+                    marshmallow texture, every element plays a vital role in creating Mint Snowman Marshmallows that are
+                    not just treats but edible celebrations.
                 </p>
 
-                <p>The meticulous layering of fish and salt during the initial preparation stage is where the magic
-                    begins. The salt not only enhances the preservation process but also draws out the natural juices
-                    from the fish, intensifying the flavors. This transformative step is a nod to the age-old techniques
-                    that have been passed down through generations, each layer contributing to the depth and character
-                    of the final concoction. As you patiently build these layers, envision the rich history embedded in
-                    this culinary tradition, connecting you to kitchens of the past where similar processes were
-                    employed to create this liquid elixir.</p>
+                <p>
+                    The enchantment begins with the infusion of mint, whether it's the coolness of peppermint or the
+                    subtle sweetness of spearmint. Just as selecting the finest herbs enhances a recipe, the quality and
+                    essence of mint are paramount to the success of your snowmen.
+                </p>
 
-                <p>Fermentation, the heart of the fish sauce-making journey, demands time and patience. Allow the jars
-                    to rest in a cool, dark place for at least six months, letting nature take its course. The gradual
-                    fermentation process is a symphony of flavors, as the fish undergoes a metamorphosis, evolving from
-                    its raw state into a complex, savory liquid. During this period, the flavors meld and mature,
-                    creating a fish sauce that is not only rich in umami but also possesses a depth that commercial
-                    counterparts often lack.</p>
+                <p>
+                    Shaping the Mint Snowman Marshmallows is a delightful artistic process. It's a playful dance of
+                    textures and tastes, where each marshmallow becomes a canvas for creativity. Decorating with
+                    chocolate eyes, candy buttons, and a sprinkle of powdered sugar transforms these marshmallows into
+                    festive masterpieces.
+                </p>
 
-                <p>Straining the liquid from the solids marks the transition from raw ingredients to the refined essence
-                    of fish sauce. The amber-hued liquid that emerges is the culmination of your efforts, embodying the
-                    soul of Southeast Asian cuisine. At this point, you hold in your hands a product that surpasses the
-                    commercial alternatives, a testament to the time-honored traditions and the dedication invested in
-                    its creation.</p>
+                <p>
+                    Similar to the patience required in allowing flavors to meld, let the Mint Snowman Marshmallows set
+                    and firm. Each bite tells a tale of careful crafting and thoughtful combinations, creating a sensory
+                    experience that connects you to the joy of the season.
+                </p>
 
-                <p>Finally, the addition of a simple syrup made from palm sugar or brown sugar adds the perfect touch of
-                    sweetness, harmonizing the flavors and achieving a well-rounded taste. The bottling and storage
-                    process that follows are the last steps in this artisanal journey, ensuring that your homemade fish
-                    sauce remains a constant companion in your kitchen, ready to enhance a myriad of dishes with its
-                    unparalleled depth and complexity. As you savor the fruits of your labor, relish in the knowledge
-                    that you have mastered the art of creating the ultimate fish sauce, a gift to your culinary legacy
-                    and a reflection of the rich tapestry of Southeast Asian gastronomy.</p>
+                <p>
+                    The final touch, akin to the presentation of any dessert, is the finishing flourish. Whether it's a
+                    drizzle of white chocolate, a dusting of mint-flavored sugar, or a sprinkle of edible glitter, these
+                    details elevate your Mint Snowman Marshmallows into a sweet winter wonder, ensuring that each bite
+                    is a delightful journey for your taste buds.
+                </p>
 
-                <h2>Ingredients</h2>
+                <p>
+                    So, as you embark on this Mint Snowman Marshmallow crafting adventure, relish in the process, honor
+                    the ingredients, and create sweet delights that not only satisfy cravings but also become a
+                    cherished part of your seasonal celebrations. As you savor the sweetness of your creation, let your
+                    Mint Snowman Marshmallows be a celebration of the magical flavors of winter, bringing joy to your
+                    table and leaving a lasting imprint on your festive repertoire.
+                </p>
+
+                <h2>Ingredients:</h2>
                 <ul>
-                    <li>2 cups of high-quality fish (anchovies or a mix of anchovies and mackerel)</li>
-                    <li>1 cup of sea salt</li>
-                    <li>3 cups of water</li>
-                    <li>1 cup of palm sugar (or brown sugar as a substitute)</li>
-                    <li>Clean glass jars with tight-fitting lids</li>
+                    <li>3 envelopes unflavored gelatin</li>
+                    <li>1 cup cold water, divided</li>
+                    <li>1 1/2 cups granulated sugar</li>
+                    <li>1 cup light corn syrup</li>
+                    <li>1/4 teaspoon salt</li>
+                    <li>1 teaspoon mint extract</li>
+                    <li>Powdered sugar for dusting</li>
+                    <li>Mini chocolate chips or dark chocolate, melted</li>
+                    <li>Small pretzel sticks</li>
+                    <li>Edible candy eyes</li>
+                    <li>Peppermint candies or small round candies for buttons</li>
+                    <li>Orange icing or small pieces of orange candy for the carrot nose</li>
                 </ul>
-                
+
                 <h2>Instructions:</h2>
                 <br>
-                <ul>
+                <ol>
                     <li>
-                        <h4>Selecting the Right Fish:</h4>
-                        <p>Begin by choosing fresh, high-quality fish. Anchovies are a popular choice due to their robust flavor, but you can experiment by combining anchovies with mackerel for a more complex profile.</p>
+                        <h4>Prepare Marshmallow Mixture:</h4>
+                        <p>In a bowl, combine gelatin with 1/2 cup of cold water. Let it bloom while preparing the sugar
+                            syrup. In
+                            a saucepan, combine granulated sugar, corn syrup, and the remaining 1/2 cup of water. Heat
+                            until the sugar
+                            dissolves. Pour over the bloomed gelatin, add salt and mint extract, then beat until thick
+                            and fluffy
+                            with an electric mixer.
+                        </p>
                     </li>
-                
+
                     <li>
-                        <h4>Prepping the Fish:</h4>
-                        <p>Rinse the fish thoroughly under cold water to remove any impurities. If using whole fish, gut and clean them, removing the heads and tails.</p>
+                        <h4>Shape the Marshmallows:</h4>
+                        <p>Dust a flat surface with powdered sugar. Transfer the marshmallow mixture, spread into an
+                            even layer, and
+                            use snowman-shaped cookie cutters or a knife to cut out marshmallow snowmen.
+                        </p>
                     </li>
-                
+
                     <li>
-                        <h4>Layering with Salt:</h4>
-                        <p>In a clean, non-reactive bowl, layer the cleaned fish with sea salt. Start with a layer of salt, followed by a layer of fish, and repeat until all the fish are covered. Let this mixture sit for 24-48 hours, allowing the salt to extract moisture from the fish.</p>
+                        <h4>Decorate the Snowmen:</h4>
+                        <p>Melt dark chocolate or use mini chocolate chips for eyes and buttons. Attach them along with
+                            broken
+                            pretzel sticks for arms, edible candy eyes, peppermint candies for buttons, and orange icing
+                            or candy for
+                            the carrot nose.
+                        </p>
                     </li>
-                
+
                     <li>
-                        <h4>Fermentation:</h4>
-                        <p>After the initial salting period, transfer the fish-salt mixture to the glass jars, ensuring the layers are intact. Add water to fully submerge the fish. Seal the jars tightly and let them ferment in a cool, dark place for at least 6 months. Shake the jars occasionally to promote even fermentation.</p>
+                        <h4>Let Them Set:</h4>
+                        <p>Allow the marshmallow snowmen to set for a few hours or overnight. Once set, carefully remove
+                            them from
+                            the powdered sugar surface.
+                        </p>
                     </li>
-                
-                    <li>
-                        <h4>Straining:</h4>
-                        <p>Once the fermentation period is complete, strain the liquid from the solids using a fine mesh sieve or cheesecloth. The resulting liquid is your homemade fish sauce.</p>
-                    </li>
-                
-                    <li>
-                        <h4>Sweetening the Sauce:</h4>
-                        <p>In a separate pot, dissolve palm sugar (or brown sugar) in water over low heat to create a simple syrup. Allow it to cool before combining it with the fish sauce. Adjust the sweetness to your liking.</p>
-                    </li>
-                
-                    <li>
-                        <h4>Bottling and Storage:</h4>
-                        <p>Pour the fish sauce into clean glass bottles, sealing them tightly. Store the bottles in the refrigerator, and your homemade fish sauce will last for several months.</p>
-                    </li>
-                </ul>
-                
-                
+                </ol>
+
+                <h2>Conclusion:</h2>
+                <p>
+                    Crafting Mint Snowman Marshmallows is a delightful journey that brings the magic of winter into your
+                    culinary creations. These adorable treats, with their minty freshness and charming decorations, are
+                    not just
+                    desserts but edible masterpieces that will leave a lasting impression. So, gather your ingredients,
+                    embrace
+                    the sweet adventure, and indulge in the joy of crafting the finest Mint Snowman Marshmallows. Happy
+                    creating!
+                </p>
+
         </div>
 
         <div class="col-md-4">
@@ -158,7 +190,8 @@
                                     <li class="list-group-item list-group-item-light"><a
                                             href="{{ url_for('latest_post') }}">Latest Post</a></li>
                                     <li class="list-group-item list-group-item-light"><a href="">Announcements</a></li>
-                                    <li class="list-group-item list-group-item-light"><a href="">Top Rated Receipe</a>
+                                    <li class="list-group-item list-group-item-light"><a
+                                            href="{{ url_for('card6')}}">Top Rated Receipe</a>
                                     </li>
                                     <li class="list-group-item list-group-item-light"><a
                                             href="{{ url_for('new_post')}}">Create
@@ -170,19 +203,27 @@
                 </div>
 
                 <div class="p-4">
-                    <h4 class="fst-italic">Archives</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, error libero consequatur
-                        cumque ullam fuga facilis? Optio aspernatur excepturi quaerat porro praesentium distinctio
-                        mollitia maiores adipisci, saepe accusamus possimus quis.
+                    <h4 class="fst-italic">Cooking Tip:</h4>
+                    <p>When creating Mint Snowman Marshmallows, precision in measuring ingredients and timing is
+                        crucial. Follow the recipe meticulously, ensuring accurate measurements for ingredients like
+                        gelatin, sugar, and mint extract. Additionally, pay close attention to the timing during each
+                        step, especially when heating the sugar syrup and beating the marshmallow mixture.
                     </p>
+                    <p>
+                        Precision ensures that the marshmallows set correctly, achieving the ideal texture and flavor.
+                        It's the key to crafting snowmen that are not only visually appealing but also delightfully
+                        fluffy and minty. Take your time to measure accurately and monitor temperatures closely, and
+                        your Mint Snowman Marshmallows will be a masterpiece of both taste and presentation.
+                    </p>
+
                 </div>
 
                 <div class="p-4">
                     <h4 class="fst-italic">Elsewhere</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/">Instagram</a></li>
+                        <li><a href="https://twitter.com/?lang=en">Twitter</a></li>
+                        <li><a href="https://en-gb.facebook.com/">Facebook</a></li>
                     </ol>
                 </div>
             </div>
