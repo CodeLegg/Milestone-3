@@ -540,6 +540,7 @@ section{
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
+  text-align: center;
 }
 
 section h3{
