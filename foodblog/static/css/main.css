@@ -531,6 +531,76 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
+
+/* MEAL PAGE */
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+section h3{
+  font-size: 90px;
+  font-weight: 900;
+  color: white;
+  padding: 10px;
+}
+section p{
+  font-size: 35px;
+  font-weight: 600;
+  color: #171717;
+}
+
+section .animate{
+  opacity: 0;
+  filter: blur(5px);
+  transition: 1s;
+}
+
+section.show-animate .animate {
+  opacity: 1;
+  filter: blur(0);
+}
+.sec-1 .animate{
+  transform: translateX(-100%);
+}
+.sec-1.show-animate .animate{
+  transform: translateX(0);
+}
+.sec-2 .animate{
+  transform: translateX(100%);
+}
+.sec-2.show-animate .animate{
+  transform: translateX(0);
+}
+.sec-3 .animate{
+  transform: translateX(-100%);
+}
+.sec-3.show-animate .animate{
+  transform: translateX(0);
+}
+
+.sec-1{background: #ff7b00;}
+.sec-2{background: #ffffff;}
+.sec-2 h3{color: #ff7b00;}
+.sec-3{background: #ff7b00;}
+.sec-4{background: #ffffff;}
+.sec-4-bg{background: #ff7b00;}
+
+.sec-4 .images img{
+  max-width: 500px;
+  margin: 0 30px;
+  transform: translateX(-100%);
+  transition-delay: calc(.2s * var(--i));
+}
+.sec-4.show-animate .images img{
+  transform: translateX(0);
+}
+
+
 /* MEDIA QUERYS */
 
 /* Extra Small devices (phones) */
