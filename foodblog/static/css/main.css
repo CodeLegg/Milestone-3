@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   margin: 0;
 }
- /* MAIN STYLES */
+/* MAIN STYLES */
 main {
   flex: 1; /* This will make sure it takes up all available space */
 }
@@ -180,8 +180,8 @@ header {
   grid-column: 1 / 3;
   background-image: url("../images/fish-sauce-3692w.png");
   background-repeat: no-repeat;
-  background-size: center;
-  background-position: left;
+  background-size: cover;
+  background-position: center;
   object-fit: cover;
 }
 .grid-item:nth-of-type(2) {
@@ -330,8 +330,6 @@ a.article-title:hover {
   flex-wrap: wrap;
 }
 
-
-
 /* COMMENT SECTION */
 .comment {
   background-color: #ffffff;
@@ -442,6 +440,7 @@ a.article-title:hover {
 .page-title {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .pic-title {
@@ -532,6 +531,7 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
+/* MEDIA QUERYS */
 
 /* Extra Small devices (phones) */
 @media (max-width: 575.98px) {
@@ -539,8 +539,6 @@ a.article-title:hover {
     display: none;
   }
 }
-
-/* MEDIA QUERYS */
 
 /* Small devices (tablets) */
 @media (min-width: 576px) {
@@ -564,24 +562,151 @@ a.article-title:hover {
     cursor: auto;
   }
 }
+/* Large devices (desktops) */
+@media (max-width: 991px) {
+  .navbar-collapse i {
+    display: none;
+  }
+}
 
 /* Extra Large devices (large desktops) */
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
+  .nav-link {
+    font-size: small;
+  }
+  .page-title {
+    font-size: 30px;
+  }
+
+  .pic-title {
+    font-size: 30px;
+  }
+
+  .blog-post-banner {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .row {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .col-md-4 {
+    max-width: 100%;
+  }
+  .col-md-8 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 470px) {
+  .page-title {
+    font-size: 25px;
+    text-align: center;
+  }
+}
+
+/* Adjust the grid-template-rows property for responsive height */
+@media (min-width: 300px) and (max-width: 700px) {
+  .grid-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+    justify-content: center;
+    grid-auto-rows: minmax(500px, auto);
+  }
+  .grid-container a {
+    text-decoration: none;
+  }
+
+  .grid-item {
+    background-color: #a71d2a;
+  }
+
+  .grid-item:nth-of-type(1) {
+    grid-column: 1;
+  }
+
+  .grid-item:nth-of-type(4) {
+    grid-column: 1;
+  }
+
+  .grid-item:nth-of-type(8) {
+    grid-column: 1;
+
+    height: 500px;
+  }
+  .grid-item:nth-of-type(9) {
+    height: 500px;
+  }
 }
 /* Extra Large devices (large desktops) */
-@media (max-width: 1320px) {
+@media (min-width: 700px) and (max-width: 1320px) {
   .grid-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
   }
-}
 
-/* Adjust the grid-template-rows property for responsive height */
-@media (max-width: 670px) {
-  .grid-card {
+  .grid-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
+    grid-gap: 15px;
+    justify-content: center;
+    grid-auto-rows: minmax(500px, auto);
+  }
+  .grid-container a {
+    text-decoration: none;
+  }
+
+  .grid-item {
+    background-color: #a71d2a;
+  }
+
+  .grid-item:nth-of-type(1) {
+    grid-column: 1;
+  }
+
+  .grid-item:nth-of-type(4) {
+    grid-column: 1;
+  }
+
+  .grid-item:nth-of-type(8) {
+    grid-column: 1;
+
+    height: 500px;
+  }
+  .grid-item:nth-of-type(9) {
+    height: 500px;
+  }
+}
+/* Devices with a width between 450px and 1550px */
+@media (max-width: 450px) {
+  .flex-item h2:first-of-type {
+    font-size: 0.8em;
+  }
+
+  .title-bottom {
+    font-size: 1rem;
+  }
+}
+/* Devices with a width between 450px and 1550px */
+@media (min-width: 450px) and (max-width: 1550px) {
+  .flex-item h2:first-of-type {
+    font-size: 0.8em;
+  }
+
+  .title-bottom {
+    font-size: 1.5rem;
   }
 }
