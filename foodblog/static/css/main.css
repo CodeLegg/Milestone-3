@@ -502,6 +502,36 @@ a.article-title:hover {
   background-position: center;
   object-fit: cover;
 }
+.blog-bg-card-8 {
+  background-image: url("../images/honey-baked-ham-8357w.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.blog-bg-card-9 {
+  background-image: url("../images/tiktok-cinnamon-rolls-3535w.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.blog-bg-card-10 {
+  background-image: url("../images/teriyaki-chicken-8201w-1024x683.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.blog-bg-card-11 {
+  background-image: url("../images/honey-garlic-chicken-3370w-1024x683.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+.blog-bg-card-12 {
+  background-image: url("../images/velveeta-mac-and-cheese-6989w-1024x683.png");
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
 
 /* Extra Small devices (phones) */
 @media (max-width: 575.98px) {
