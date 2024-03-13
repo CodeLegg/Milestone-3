@@ -24,7 +24,7 @@ def receipes():
 @login_required
 def discussion():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=1)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
     return render_template('discussion.html', title='Discussion', posts=posts)
 
 @app.route('/register', methods=['GET', 'POST'])
