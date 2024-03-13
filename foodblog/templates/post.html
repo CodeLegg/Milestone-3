@@ -4,7 +4,6 @@
 {% block content %}
 
     <article class="media content-section">
-        <img class="rounded-circle article-img" src=" {{ url_for('static', filename='profile_pics/' + post.author.image_file)}}">
         <div class="media-body">
             <div class="article-metadata">
                 <strong class="mr-2" href="#">{{ post.author.username }}</strong>
@@ -53,7 +52,6 @@
 {% for comment in comments %}
     <div class="comment">
         <div>
-            <img class="rounded-circle article-img" src=" {{ url_for('static', filename='profile_pics/' + comment.author.image_file)}}">
             <small> by <strong>{{ comment.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
             <hr>
             <p>{{ comment.content }}</p>
@@ -69,7 +67,6 @@
         <!-- Nested replies if applicable -->
         {% for reply in comment.replies %}
             <div class="reply" style="margin-left: 20px;">
-                <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + reply.author.image_file) }}">
                 <small> by <strong>{{ reply.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
                 <p>{{ reply.content }}</p>
 

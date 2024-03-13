@@ -1,55 +1,31 @@
 import os
-import secrets
-from PIL import Image
 from flask import render_template, url_for, request, flash, redirect, request, abort
 from foodblog import app, db, bcrypt
 from foodblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm, ReplyForm, DeleteCommentForm
 from foodblog.models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
-def get_image_file():
-    """Helper function to get the image file URL based on user authentication."""
-    if current_user.is_authenticated:
-        return url_for('static', filename='profile_pics/' + current_user.image_file)
-    else:
-        return None
-
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
-    form_picture.save(picture_path)
-    output_size = (125, 125)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
-    prev_picture = os.path.join(app.root_path, 'static/profile_pics', current_user.image_file)
-
-    if os.path.exists(prev_picture) and os.path.basename(prev_picture) != 'default.png':
-        os.remove(prev_picture)
-    return picture_fn
 
 @app.route('/')
 def home():
-    return render_template('home.html', image_file=get_image_file())
+    return render_template('home.html')
 
 @app.route('/meals')
 @login_required
 def meals():
-    return render_template('meals.html', image_file=get_image_file(), title='Meals')
+    return render_template('meals.html', title='Meals')
 
 @app.route('/receipes')
 @login_required
 def receipes():
-    return render_template('receipes.html', image_file=get_image_file(), title='Receipes')
+    return render_template('receipes.html', title='Receipes')
 
 
 @app.route('/discussion')
 @login_required
 def discussion():
     posts = Post.query.all()
-    return render_template('discussion.html', image_file=get_image_file(), title='Discussion', posts=posts)
+    return render_template('discussion.html', title='Discussion', posts=posts)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -94,21 +70,20 @@ def profile():
     form = UpdateAccountForm()
 
     if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
         current_user.username = form.username.data
         current_user.email = form.email.data
         current_user.favorite_food = form.favorite_food.data
+        
         db.session.commit()
+        
         flash('Your account has been updated!', 'success')
         return redirect(url_for('profile'))
+    
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
         form.favorite_food.data = current_user.favorite_food
-    image_file = get_image_file()
-    return render_template('profile.html', title='Profile', image_file=image_file, form=form)
+    return render_template('profile.html', title='Profile', form=form)
 
 @app.route("/layout")
 def layout():
@@ -118,7 +93,6 @@ def layout():
 @login_required
 def new_post():
     form = PostForm()
-    image_file = get_image_file()
 
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
@@ -126,7 +100,7 @@ def new_post():
         db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('discussion'))
-    return render_template('create_post.html', image_file=image_file, form=form, title='New Post', legend='New Post')
+    return render_template('create_post.html', form=form, title='New Post', legend='New Post')
 
 
 @app.route("/latest_post", methods=['GET'])
@@ -142,7 +116,6 @@ def latest_post():
 @app.route("/post/<int:post_id>", methods=['GET', 'POST'])
 def post(post_id):
     post = Post.query.get_or_404(post_id)
-    image_file = get_image_file()
 
     comments = Comment.query.filter_by(post_id=post.id, parent_comment_id=None).all()
 
@@ -170,7 +143,7 @@ def post(post_id):
                 flash('Your comment has been posted!', 'success')
                 return redirect(url_for('post', post_id=post.id))
 
-    return render_template('post.html', post=post, comments=comments, comment_form=comment_form, reply_form=reply_form, image_file=image_file)
+    return render_template('post.html', post=post, comments=comments, comment_form=comment_form, reply_form=reply_form)
 
 @app.route("/comment/<int:comment_id>/delete", methods=['POST'])
 @login_required
@@ -211,8 +184,7 @@ def update_post(post_id):
         form.title.data = post.title
         form.content.data = post.content
 
-    image_file = get_image_file()
-    return render_template('create_post.html', image_file=image_file, form=form, title='Update Post', legend='Update Post')
+    return render_template('create_post.html', form=form, title='Update Post', legend='Update Post')
 
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
 @login_required
@@ -232,59 +204,59 @@ def delete_post(post_id):
 @app.route('/card1')
 @login_required
 def card1():
-    return render_template('card1.html', image_file=get_image_file(), title='Fish Receipe')
+    return render_template('card1.html', title='Fish Receipe')
 
 @app.route('/card2')
 @login_required
 def card2():
-    return render_template('card2.html', image_file=get_image_file(), title='Chicken Receipe')
+    return render_template('card2.html', title='Chicken Receipe')
 
 @app.route('/card3')
 @login_required
 def card3():
-    return render_template('card3.html', image_file=get_image_file(), title='Chinese Receipe')
+    return render_template('card3.html', title='Chinese Receipe')
 
 @app.route('/card4')
 @login_required
 def card4():
-    return render_template('card4.html', image_file=get_image_file(), title='Taco Receipe')
+    return render_template('card4.html', title='Taco Receipe')
 
 @app.route('/card5')
 @login_required
 def card5():
-    return render_template('card5.html', image_file=get_image_file(), title='Sweet Treat Receipe')
+    return render_template('card5.html', title='Sweet Treat Receipe')
 
 @app.route('/card6')
 @login_required
 def card6():
-    return render_template('card6.html', image_file=get_image_file(), title='Baking Receipe')
+    return render_template('card6.html', title='Baking Receipe')
 
 @app.route('/card7')
 @login_required
 def card7():
-    return render_template('card7.html', image_file=get_image_file(), title='Sweet Treat Receipe')
+    return render_template('card7.html', title='Sweet Treat Receipe')
 
 @app.route('/card8')
 @login_required
 def card8():
-    return render_template('card8.html', image_file=get_image_file(), title='Meat Receipe')
+    return render_template('card8.html', title='Meat Receipe')
 
 @app.route('/card9')
 @login_required
 def card9():
-    return render_template('card9.html', image_file=get_image_file(), title='Baking Receipe')
+    return render_template('card9.html', title='Baking Receipe')
 
 @app.route('/card10')
 @login_required
 def card10():
-    return render_template('card10.html', image_file=get_image_file(), title='Chicken Receipe')
+    return render_template('card10.html', title='Chicken Receipe')
 
 @app.route('/card11')
 @login_required
 def card11():
-    return render_template('card11.html', image_file=get_image_file(), title='Chicken Receipe')
+    return render_template('card11.html', title='Chicken Receipe')
 
 @app.route('/card12')
 @login_required
 def card12():
-    return render_template('card12.html', image_file=get_image_file(), title='Pasta Receipe')
+    return render_template('card12.html', title='Pasta Receipe')
