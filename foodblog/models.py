@@ -1,5 +1,5 @@
 from datetime import datetime
-from foodblog import db, login_manager
+from foodblog import db, login_manager, app
 from flask_login import UserMixin
 
 @login_manager.user_loader
@@ -15,9 +15,10 @@ class User(db.Model, UserMixin):
     favorite_food = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
     comments = db.relationship('Comment', backref='author', lazy=True)
+    
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.favorite_food}', '{self.image_file}')"
+        return f"User('{self.username}', '{self.email}', '{self.favorite_food}')"
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
