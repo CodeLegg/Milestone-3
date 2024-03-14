@@ -61,13 +61,6 @@ class LoginForm(FlaskForm):
             message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character."
         )
         ])
-    # CONFIRM PASSWORD
-    confirm_password = PasswordField('Confirm Password', 
-                            validators=[DataRequired(), EqualTo('password'), Length(min=8, max=20),Regexp(
-            regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
-            message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character."
-        )
-        ])
     # REMEMBER ME
     remember = BooleanField('Remember Me')
 
