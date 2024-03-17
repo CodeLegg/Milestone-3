@@ -20,9 +20,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = uri
 # # Update the database URL based on the environment
 # uri = os.environ.get("DATABASE_URL", local_db_url)
 
-# # Check and modify the URI if necessary
-# if uri.startswith("postgres://"):
-#     uri = uri.replace("postgres://", "postgresql://", 1)
+# Check and modify the URI if necessary
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
 
 # Set the Flask app configuration
 app.config["SQLALCHEMY_DATABASE_URI"] = uri
