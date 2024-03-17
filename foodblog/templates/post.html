@@ -3,92 +3,96 @@
 
 {% block content %}
 
-    <article class="media content-section">
-        <div class="media-body">
-            <div class="article-metadata">
-                <strong class="mr-2" href="#">{{ post.author.username }}</strong>
-                <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
-                {% if post.author == current_user %}
-                <div>
-                    <a class="btn btn-update btn-sm mt-1 mb-1" href="{{ url_for('update_post', post_id=post.id)}}">Update</a>
-                    <button type="button" class="btn btn-delete btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                </div>
-                {% endif %}
-            </div>
-            <h2 class="article-title">{{ post.title }}</h2>
-            <p class="article-content">{{ post.content }}</p>
-        </div>
-    </article>
-  <!-- Modal -->
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <strong class="mr-2" href="#">{{ post.author.username }}</strong>
+      <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+      {% if post.author == current_user %}
+      <div>
+        <a class="btn btn-update btn-sm mt-1 mb-1" href="{{ url_for('update_post', post_id=post.id)}}">Update</a>
+        <button type="button" class="btn btn-delete btn-sm m-1" data-bs-toggle="modal"
+          data-bs-target="#deleteModal">Delete</button>
+      </div>
+      {% endif %}
+    </div>
+    <h2 class="article-title">{{ post.title }}</h2>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
+<!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete your post?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <form action="{{ url_for('delete_post', post_id=post.id)}}" method="POST"> 
-            <input class="btn btn-danger" type="submit" value="Delete">
-          </form>
-        </div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+            class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your post?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="{{ url_for('delete_post', post_id=post.id)}}" method="POST">
+          <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
       </div>
     </div>
   </div>
+</div>
 
 <!-- post.html -->
 <h2>Comments</h2>
 <!-- Comment Form -->
 <form class="content-section" method="POST" action="{{ url_for('post', post_id=post.id) }}">
-    {{ comment_form.hidden_tag() }}
-    {{ comment_form.content(size=20, class="custom-textarea", placeholder="Your comment goes here...") }}    <br>
-    {{ comment_form.submit (class="btn-update")}}
+  {{ comment_form.hidden_tag() }}
+  {{ comment_form.content(size=20, class="custom-textarea", placeholder="Your comment goes here...") }} <br>
+  {{ comment_form.submit (class="btn-update")}}
 </form>
 
 {% for comment in comments %}
-    <div class="comment">
-        <div>
-            <small> by <strong>{{ comment.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
-            <hr>
-            <p>{{ comment.content }}</p>
-        </div>
+<div class="comment">
+  <div>
+    <small> by <strong>{{ comment.author.username }}</strong> on
+      {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+    <hr>
+    <p>{{ comment.content }}</p>
+  </div>
 
-        <!-- Delete Comment Button -->
-        {% if current_user == comment.author %}
-            <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
-                <button type="submit" class="btn btn-sm btn-danger">Delete Comment</button>
-            </form>
-        {% endif %}
+  <!-- Delete Comment Button -->
+  {% if current_user == comment.author %}
+  <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
+    <button type="submit" class="btn btn-sm btn-danger">Delete Comment</button>
+  </form>
+  {% endif %}
 
-        <!-- Nested replies if applicable -->
-        {% for reply in comment.replies %}
-            <div class="reply" style="margin-left: 20px;">
-                <small> by <strong>{{ reply.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
-                <p>{{ reply.content }}</p>
+  <!-- Nested replies if applicable -->
+  {% for reply in comment.replies %}
+  <div class="reply" style="margin-left: 20px;">
+    <small> by <strong>{{ reply.author.username }}</strong> on
+      {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+    <p>{{ reply.content }}</p>
 
-                <!-- Delete Reply Button -->
-                {% if current_user == reply.author %}
-                <form method="POST" action="{{ url_for('delete_comment', comment_id=reply.id) }}">
-                    <button type="submit" class="btn btn-sm btn-danger">Delete Reply</button>
-                </form>
-                {% endif %}
+    <!-- Delete Reply Button -->
+    {% if current_user == reply.author %}
+    <form method="POST" action="{{ url_for('delete_comment', comment_id=reply.id) }}">
+      <button type="submit" class="btn btn-sm btn-danger">Delete Reply</button>
+    </form>
+    {% endif %}
 
-            </div>
-        {% endfor %}
+  </div>
+  {% endfor %}
 
-        <!-- Reply Form -->
-        <form method="POST" action="{{ url_for('post', post_id=post.id) }}">
-            {{ reply_form.hidden_tag() }}
-            <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
-            {{ reply_form.content(size=20, class="custom-textarea", placeholder="Your reply goes here...") }}    <br>
-            <br>
-            {{ reply_form.submit(class="btn-update") }}
-        </form>
-    </div>
+  <!-- Reply Form -->
+  <form method="POST" action="{{ url_for('post', post_id=post.id) }}">
+    {{ reply_form.hidden_tag() }}
+    <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+    {{ reply_form.content(size=20, class="custom-textarea", placeholder="Your reply goes here...") }} <br>
+    <br>
+    {{ reply_form.submit(class="btn-update") }}
+  </form>
+</div>
 {% endfor %}
 
 
