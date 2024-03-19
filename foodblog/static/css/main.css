@@ -214,8 +214,16 @@ header {
 }
 
 .grid-item {
-  background-color: #a71d2a;
+  /* Your existing styles for grid items */
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth scaling */  background-color: #a71d2a;
+
 }
+
+.grid-item:hover {
+  transform: scale(1.005); /* Scale up to 1.1 on hover */
+}
+
+
 
 .grid-item:nth-of-type(1) {
   grid-column: 1 / 3;
