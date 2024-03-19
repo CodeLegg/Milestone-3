@@ -6,7 +6,11 @@
     <div class="media-body">
         <div class="article-metadata">
             <strong class="mr-2" href="#">{{ post.author.username }}</strong>
+            
             <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+         <hr class="m-0">
+            <small class="text-muted"> My Favorite Food Is:</small>
+            <strong>{{ post.author.favorite_food }}</strong>
         </div>
         <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
         <p class="article-content">{{ post.content }}</p>

@@ -1,6 +1,8 @@
 from datetime import datetime
 from foodblog import db, login_manager, app
 from flask_login import UserMixin
+from sqlalchemy.orm import relationship
+
 
 
 @login_manager.user_loader
@@ -14,7 +16,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     favorite_food = db.Column(db.String(60), nullable=False)
-    posts = db.relationship("Post", backref="author", lazy=True)
+    posts = relationship('Post', backref='author', lazy='dynamic')
     comments = db.relationship("Comment", backref="author", lazy=True)
 
     def __repr__(self):

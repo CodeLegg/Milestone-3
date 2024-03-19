@@ -35,7 +35,7 @@ def receipes():
 @login_required
 def discussion():
     page = request.args.get("page", 1, type=int)
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=1)
     return render_template("discussion.html", title="Discussion", posts=posts)
 
 
@@ -88,9 +88,12 @@ def logout():
     return redirect(url_for("home"))
 
 
+from flask import request
+
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
+    page = request.args.get('page', 1, type=int)
     form = UpdateAccountForm()
 
     if form.validate_on_submit():
@@ -107,7 +110,13 @@ def profile():
         form.username.data = current_user.username
         form.email.data = current_user.email
         form.favorite_food.data = current_user.favorite_food
-    return render_template("profile.html", title="Profile", form=form)
+
+    # Paginate user's posts
+    user_posts = current_user.posts.order_by(Post.date_posted.desc()).paginate(page=page, per_page=1)
+
+    return render_template("profile.html", title="Profile", form=form, user_posts=user_posts)
+
+
 
 
 @app.route("/layout")

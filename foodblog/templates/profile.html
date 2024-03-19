@@ -59,7 +59,46 @@
         <div class="form-group">
             {{ form.submit(class="btn-form") }}
         </div>
+    </form>
+
+    <br>
+
+    <div class="user-posts">
+        <h2>Public Posts</h2>
+        <p class="text-secondary">{{ current_user.username }}'s Posts</p>
+        <legend class="border-bottom mb-4">Post Information</legend>
+
+        <div class="media content-section">
+            {% for post in user_posts.items %}
+            <h4><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h4>
+            <p>{{ post.content }}</p>
+            {% endfor %}
+        </div>
 
 
+        <div class="pagination">
+            {% for page_num in user_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+            {% if user_posts.page == page_num %}
+            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
+            {% else %}
+            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
+            {% endif %}
+            {% else %}
+            <span class="btn btn-outline-pag mb-4 disabled">...</span>
+            {% endif %}
+            <span class="pagination-gap">&nbsp;</span> <!-- Add a gap between buttons -->
+            {% endfor %}
+        </div>
+
+        <!-- Quick links -->
+        <div class="row">
+            <div class="col-md-8 offset-md-4">
+                <!-- Make sure they stay in posistion -->
+            </div>
+        </div>
+
+    </div>
 </div>
+
 {% endblock content %}
