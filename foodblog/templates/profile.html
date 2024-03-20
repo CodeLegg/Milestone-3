@@ -103,7 +103,7 @@
 {% for comment in user_comments %}
 <div class="comment">
     <div>
-        <small> by <strong>{{ comment.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+        <small>{{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
         <hr class="mt-0 mb-0">
         <p>{{ comment.content }}</p>
     </div>
