@@ -650,29 +650,24 @@ section.show-animate .animate {
   transform: translateX(0);
 }
 
-/* MEDIA QUERYS */
-
-/* Extra Small devices (phones) */
-@media (max-width: 575.98px) {
-  .nav-small-profile {
-    display: none;
-  }
-}
 
 /* Small devices (tablets) */
-@media (min-width: 576px) {
-  .nav-small-profile {
-    display: none;
-  }
-  /* .d-flex{
-    flex-direction: column;
-  } */
-}
+@media (min-width: 375px) {
+  section h3 {
+    font-size: 60px;
+    font-weight: 900;
+    color: white;
+    
+}}
 
 /* Medium devices (desktops) */
 @media (min-width: 768px) {
-  /* Your styles for medium screens go here */
-}
+  section h3 {
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+    
+}}
 
 /* Large devices (desktops) */
 @media (min-width: 992px) {
