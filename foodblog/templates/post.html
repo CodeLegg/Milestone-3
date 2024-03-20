@@ -64,7 +64,7 @@
       {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
     <hr class="mt-0 mb-0">
     <small class="text-muted"> My Favorite Food Is:</small>
-    <strong>{{ comment.author.favorite_food }}</strong>
+    <small><strong>{{ comment.author.favorite_food }}</strong></small>
     <hr class="mt-0">
     <p>{{ comment.content }}</p>
   </div>
