@@ -90,10 +90,11 @@ def logout():
 
 from flask import request
 
+
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
-    page = request.args.get('page', 1, type=int)
+    page = request.args.get("page", 1, type=int)
     form = UpdateAccountForm()
 
     if form.validate_on_submit():
@@ -112,11 +113,13 @@ def profile():
         form.favorite_food.data = current_user.favorite_food
 
     # Paginate user's posts
-    user_posts = current_user.posts.order_by(Post.date_posted.desc()).paginate(page=page, per_page=1)
+    user_posts = current_user.posts.order_by(Post.date_posted.desc()).paginate(
+        page=page, per_page=1
+    )
 
-    return render_template("profile.html", title="Profile", form=form, user_posts=user_posts)
-
-
+    return render_template(
+        "profile.html", title="Profile", form=form, user_posts=user_posts
+    )
 
 
 @app.route("/layout")
@@ -255,6 +258,18 @@ def delete_post(post_id):
     db.session.commit()
     flash("Your post has been deleted!", "success")
     return redirect(url_for("discussion"))
+
+
+@app.route("/user/<str:username>")
+def user_posts(username):
+    page = request.args.get("page", 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = (
+        Post.query.filter_by(author=user)
+        .order_by(Post.date_posted.desc())
+        .paginate(page=page, per_page=5)
+    )
+    return render_template("user_posts.html", user=user, posts=posts)
 
 
 # RECEIPE PAGES

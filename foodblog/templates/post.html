@@ -7,7 +7,7 @@
   <div class="media-body">
     <div class="article-metadata">
       <small class="text-muted">by</small>
-      <strong class="" href="#">{{ post.author.username }}</strong>
+      <a href="{{ url_for('user_posts', username=post.author.username )}}"><strong>{{ post.author.username }}</strong></a>
       <small class="text-muted">on</small>
       <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
       <hr class="m-0">
