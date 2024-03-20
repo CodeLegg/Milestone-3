@@ -8,11 +8,11 @@
         <div class="article-metadata">
             <small class="text-muted">by</small>
 
-            <a href="{{ url_for('user_posts', username=post.author.username )}}"><strong>{{ post.author.username }}</strong></a>
+      <strong>{{ post.author.username }}</strong>
             <small class="text-muted">on</small>
 
             <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
-         <hr class="m-0">
+            <hr class="m-0">
             <small class="text-muted"> My Favorite Food Is:</small>
             <strong>{{ post.author.favorite_food }}</strong>
         </div>
@@ -24,9 +24,10 @@
 {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
 {% if page_num %}
 {% if posts.page == page_num %}
-<a class="btn btn-pag mb-4" href="{{ url_for('discussion', page=page_num)}}">{{ page_num }}</a>
+<a class="btn btn-pag mb-4" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
 {% else %}
-<a class="btn btn-outline-pag mb-4" href="{{ url_for('discussion', page=page_num)}}">{{ page_num }}</a>
+<a class="btn btn-outline-pag mb-4"
+    href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
 {% endif %}
 {% else %}
 ...
