@@ -130,11 +130,10 @@ class UpdateAccountForm(FlaskForm):
 
 class PostForm(FlaskForm):
     # TITLE
-    title = StringField("Title", validators=[DataRequired()])
+    title = StringField("Title", validators=[DataRequired(), Length(min=10)])
     # CONTENT
-    content = TextAreaField("Content", validators=[DataRequired()])
+    content = TextAreaField("Content", validators=[DataRequired(), Length(min=10)])
     submit = SubmitField("Post")
-
 
 class CommentForm(FlaskForm):
     content = TextAreaField("", validators=[DataRequired()])
