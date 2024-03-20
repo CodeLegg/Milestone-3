@@ -7,11 +7,12 @@
         <div class="article-metadata">
             <small class="text-muted">by</small>
 
-            <a class="article-title" href="{{ url_for('user_posts', username=post.author.username )}}"><strong>{{ post.author.username }}</strong></a>
+            <a class="article-title"
+                href="{{ url_for('user_posts', username=post.author.username )}}"><strong>{{ post.author.username }}</strong></a>
             <small class="text-muted">on</small>
 
             <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
-         <hr class="m-0">
+            <hr class="m-0">
             <small class="text-muted"> My Favorite Food Is:</small>
             <strong>{{ post.author.favorite_food }}</strong>
         </div>
