@@ -68,10 +68,13 @@
         <p class="text-secondary">{{ current_user.username }}'s Posts</p>
         <legend class="border-bottom mb-4">Post Information</legend>
 
-        <div class="media content-section">
+        <div class="media content-section">            
             {% for post in user_posts.items %}
-            <h4><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h4>
-            <p>{{ post.content }}</p>
+            <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+            <div>
+                <h4><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h4>
+                <p>{{ post.content }}</p>
+            </div>
             {% endfor %}
         </div>
 
