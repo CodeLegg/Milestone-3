@@ -99,15 +99,19 @@
         <p class="text-secondary">{{ current_user.username }}'s Comments</p>
         <legend class="border-bottom mb-4">Comment Information</legend>
 
-  <!-- Display user's comments -->
+<!-- Display user's comments -->
 {% for comment in user_comments %}
-<div class="comment">
-    <div>
-        <small>{{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
-        <hr class="mt-0 mb-0">
-        <p>{{ comment.content }}</p>
-    </div>
-</div>
+    {% if comment.post %}
+        <a class="article-title" href="{{ url_for('post', post_id=comment.post.id) }}">
+            <div class="comment">
+                <div>
+                    <small>{{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+                    <hr class="mt-0 mb-0">
+                    <p>{{ comment.content }}</p>
+                </div>
+            </div>
+        </a>
+    {% endif %}
 {% endfor %}
 
 
