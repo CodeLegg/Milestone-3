@@ -64,7 +64,7 @@
       {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
     <hr class="mt-0 mb-0">
     <small class="text-muted"> My Favorite Food Is:</small>
-    <small>{{ post.author.favorite_food }}</small>
+    <strong>{{ comment.author.favorite_food }}</strong>
     <hr class="mt-0">
     <p>{{ comment.content }}</p>
   </div>
@@ -80,7 +80,10 @@
   {% for reply in comment.replies %}
   <div class="reply" style="margin-left: 20px;">
     <small> by <strong>{{ reply.author.username }}</strong> on
-      {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+      {{ reply.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+      <hr class="mt-0 mb-0">
+      <small class="text-muted"> My Favorite Food Is:</small>
+      <strong>{{ reply.author.favorite_food }}</strong>
     <p>{{ reply.content }}</p>
 
     <!-- Delete Reply Button -->

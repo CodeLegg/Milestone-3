@@ -94,7 +94,38 @@
             {% endfor %}
         </div>
 
-        <!-- Quick links -->
+        <h2>Public Comments</h2>
+        <p class="text-secondary">{{ current_user.username }}'s Comments</p>
+        <legend class="border-bottom mb-4">Comment Information</legend>
+
+
+        <div class="media content-section">            
+            {% for comment in comments %}
+            <small class="text-muted">{{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+            <div>
+                <p>{{ comment.content }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="pagination">
+            {% for page_num in user_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+            {% if user_posts.page == page_num %}
+            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
+            {% else %}
+            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
+            {% endif %}
+            {% else %}
+            <span class="btn btn-outline-pag mb-4 disabled">...</span>
+            {% endif %}
+            <span class="pagination-gap">&nbsp;</span> <!-- Add a gap between buttons -->
+            {% endfor %}
+        </div>
+
+        
+            <!-- Quick links -->
         <div class="row">
             <div class="col-md-8 offset-md-4">
                 <!-- Make sure they stay in posistion -->
@@ -103,5 +134,7 @@
 
     </div>
 </div>
+
+
 
 {% endblock content %}
