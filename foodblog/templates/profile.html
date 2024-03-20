@@ -98,31 +98,37 @@
         <p class="text-secondary">{{ current_user.username }}'s Comments</p>
         <legend class="border-bottom mb-4">Comment Information</legend>
 
+  <!-- Display user's comments -->
+{% for comment in user_comments %}
+<div class="comment">
+    <div>
+        <small> by <strong>{{ comment.author.username }}</strong> on {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
+        <hr class="mt-0 mb-0">
+        <small class="text-muted"> My Favorite Food Is:</small>
+        <strong>{{ comment.author.favorite_food }}</strong>
+        <hr class="mt-0">
+        <p>{{ comment.content }}</p>
+    </div>
+</div>
+{% endfor %}
 
-        <div class="media content-section">            
-            {% for comment in comments %}
-            <small class="text-muted">{{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
-            <div>
-                <p>{{ comment.content }}</p>
-            </div>
-            {% endfor %}
-        </div>
 
-
-        <div class="pagination">
-            {% for page_num in user_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-            {% if page_num %}
-            {% if user_posts.page == page_num %}
-            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
+      <!-- Pagination for comments -->
+<div class="pagination">
+    {% for page_num in user_comments.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+        {% if page_num %}
+            {% if user_comments.page == page_num %}
+                <a href="{{ url_for('profile', comments_page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
             {% else %}
-            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
+                <a href="{{ url_for('profile', comments_page=page_num, page=page) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
             {% endif %}
-            {% else %}
+        {% else %}
             <span class="btn btn-outline-pag mb-4 disabled">...</span>
-            {% endif %}
-            <span class="pagination-gap">&nbsp;</span> <!-- Add a gap between buttons -->
-            {% endfor %}
-        </div>
+        {% endif %}
+        <span class="pagination-gap">&nbsp;</span> 
+    {% endfor %}
+</div>
+
 
         
             <!-- Quick links -->

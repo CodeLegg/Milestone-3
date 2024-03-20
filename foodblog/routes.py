@@ -91,11 +91,16 @@ def logout():
 from flask import request
 
 
+from flask import render_template
+
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
     page = request.args.get("page", 1, type=int)
     form = UpdateAccountForm()
+
+    # Fetch the user's comment
+    comment = Comment.query.filter_by(author=current_user).all()
 
     if form.validate_on_submit():
         current_user.username = form.username.data
@@ -117,9 +122,18 @@ def profile():
         page=page, per_page=1
     )
 
-    return render_template(
-        "profile.html", title="Profile", form=form, user_posts=user_posts
+    # Paginate user's comments
+    comments_per_page = 1  # Adjust this value as needed
+    comments_page = request.args.get("comments_page", 1, type=int)
+    user_comments = Comment.query.filter_by(author=current_user).paginate(
+        page=comments_page, per_page=comments_per_page, error_out=False
     )
+
+
+    return render_template(
+        "profile.html", title="Profile", form=form, user_posts=user_posts, comment=comment, user_comments=user_comments
+    )
+
 
 
 @app.route("/layout")
