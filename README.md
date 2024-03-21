@@ -89,8 +89,7 @@ The site has scored highly in terms of accessibility, I have included alt text d
 
 
 ### Imagery  
-Used a combination of imagery from Pixabay (See media below) and an image that i had taken myself. Images are all of a similar size and quality for consistency throughout the site.  
-
+Used a combination of imagery from [Foodie](https://www.foodie.com/). The images were chosen to reflect the food theme. Images are all of a similar size and quality for consistency throughout the site.
 
 ### Wireframes
 [BiteBurst Wireframes](foodblog/static/readme-images/biteburst-wireframes.pdf)
