@@ -19,7 +19,7 @@ Link to live site: https://pythonlogin-017f233d45cf.herokuapp.com/
   * [Layout](#layout)
   * [Imagery](#imagery)
   * [Wireframes](#wireframes)
-  * [Data Model](#data-model)
+  * [Database Relationships Schema](#database-relationships-schema)
   * [Security](#security)
   * [Future Updates](#future-updates)
 
@@ -48,15 +48,19 @@ Link to live site: https://pythonlogin-017f233d45cf.herokuapp.com/
 ### User Stories
 
 **User Story 1**
+
 As a passionate food enthusiast, I want to join a food community where I can easily share my cooking experiences, recipes, and culinary adventures. I hope to connect with like-minded individuals, learn new cooking techniques, and discover exciting food trends.
 
 **User Story 2**
+
 As someone who enjoys exploring different cuisines, I'm eager to find a platform that offers a diverse range of food content. I want to read insightful reviews, discover hidden gems in my area, and participate in discussions about food culture and dining experiences.
 
 **User Story 3**
+
 As a home cook looking to expand my culinary skills, I'm seeking a user-friendly platform where I can access a variety of cooking tutorials, tips, and tricks. I hope to find inspiration for new dishes, learn from experienced chefs, and share my own cooking creations with a supportive community.
 
 **User Story 4**
+
 As a professional chef aiming to showcase my culinary creations and establish my brand, I'm excited to utilize Suport as a platform to share my expertise and interact with a diverse audience. I hope to engage with food enthusiasts, receive feedback on my dishes, and collaborate with other chefs to elevate my culinary career.
 
 
@@ -91,11 +95,12 @@ Used a combination of imagery from Pixabay (See media below) and an image that i
 ### Wireframes
 [BiteBurst Wireframes](foodblog/static/readme-images/biteburst-wireframes.pdf)
 
-### Data Model  
+Consistency reigns in my wireframes from inception to completion. I envisioned a dynamic platform comprising a blog-style interface intertwined with an interactive discussion page. Here, users can effortlessly generate, update, peruse, and remove posts, comments, and replies. Additionally, I integrated a feature during sign-up where users indicate their favorite food, adding a personal touch to their profiles. This choice is prominently showcased in the discussion section and can be modified at any juncture, ensuring a tailored and engaging user experience.
 
 
-# Database Relationships Schema
-
+### Database Relationships Schema
+![alt text](foodblog/static/readme-images/database-schema-1.png)
+![alt text](foodblog/static/readme-images/database-schema.png)
 **User to Posts**
 - One to Many.
 - Each user can have multiple posts.
@@ -132,19 +137,24 @@ Used a combination of imagery from Pixabay (See media below) and an image that i
 A number of different security considerations were taken into account when putting together this project.  
 
 **Use of .env file**  
-Important credentials including DATABASE_URL and SECRET_KEY are located within .env file which is subsequently in a .gitignore file to ensure it remains secure. SECRET_KEY was initially located in __init__.py file, it has since been changed and moved to a more secure location in .env file, the database was also subsequently destroyed and rebuilt to produce a different DATABASE_URL.  
+
+Vital credentials, such as DATABASE_URL and SECRET_KEY, are stored in a .env file, which is listed in the .gitignore file to maintain its confidentiality. Initially, the SECRET_KEY was stored in the init.py file but has been relocated to the more secure .env file. Additionally, the database was destroyed and reconstructed to generate a new DATABASE_URL.
 
 **Defensive Programming**  
-Measures have been put in place throughout the site to prevent users from doing things they are not authorised to do. For example, A user who has not signed up to the site, cannot access any of the individual BiteBurst pages or unable to add a post. This has been implemented using @login_required decorators.  
+
+The website incorporates various safeguards to restrict unauthorized actions by users. For instance, accessing individual BiteBurst pages or adding a post is restricted to signed-up users only. These restrictions are enforced using the @login_required decorators. 
 
 **Password Hashing**  
  
+ bcrypt: In Flask applications, bcrypt is a widely used library for securely hashing passwords. Password hashing is a crucial aspect of user authentication, as it ensures that passwords are stored securely in the database. Bcrypt employs a strong cryptographic hashing algorithm that incorporates salting and key stretching to protect against various forms of attacks, including brute-force and rainbow table attacks. Salting involves adding random data to each password before hashing, while key stretching involves applying the hashing algorithm multiple times to slow down the hashing process, making it more resilient against password cracking attempts. By utilizing bcrypt, Flask applications can enhance the security of user authentication and safeguard user passwords against unauthorized access.
 
 **Input Validation**  
-The code checks if the email already exists in the database to prevent duplicate registrations. Validation checks on the length of the email, username, and password ensure that users provide sufficiently complex information. Passwords entered during the registration process are confirmed by having the user enter them twice. If they don't match, an error is shown.  
+
+The provided code implements several measures to ensure the integrity and security of user registrations. Firstly, it verifies whether the email already exists in the database to prevent duplicate registrations. Additionally, it enforces validation checks on the length of the email, username, and password to ensure users provide sufficiently complex information. Furthermore, the registration process includes a password confirmation step, where users are required to enter their password twice for verification. In case of mismatch, an error message is displayed to prompt users to rectify the inconsistency.
 
 **Feedback to Users**  
-Flash messages provide feedback to users about the status of their actions. For example, 'successful login or reasons for authentication failure'. However, care is taken not to provide overly specific errors. For example, rather than saying "incorrect password for given email," the feedback messages are generalised like 'Email does not exist' or 'Incorrect password, try again.'  
+
+Flash messages serve to communicate the outcome of user actions, providing feedback such as successful login or reasons for authentication failure. However, these messages are crafted to maintain a balance between informing users and preserving security. Instead of overly specific errors like "incorrect password for given email," the messages are more generalized, stating 'Email does not exist' or 'Incorrect password, try again.' This approach ensures clarity for users while safeguarding sensitive information.
 
 
 ## Features
@@ -153,21 +163,21 @@ Flash messages provide feedback to users about the status of their actions. For 
 **Sign up**  
 Users have the ability to sign up, and must choose their favourite food.
 
-![Image of sign-up page](README-images/ "Optional title")
+![Image of sign-up page](foodblog/static/readme-images/sign-up.png "Optional title")
 
 **Log in**  
 Users can login using the information that they provided at the sign up process.  
 
-![Image of login page](README-images/ "Optional title")
+![Image of login page](foodblog/static/readme-images/login.png "Optional title")
 
 **Home page**  
 Users are presented with an overview page that includes interactive images of 12 Food card receipes that the site currently facilitates (Fish Receipes, Chicken Receipes, Chinese Receipes, Taco Receipes, Sweet Treat Receipes, Baking Receipes, Meat Receipes, Pasta Receipes). When users hover over the images, they scale up slightly causing the image to be zoom out a little, leading to a better user experience. 
 
-![Image of overview page](README-images/ "Optional title")
+![Image of home page](foodblog/static/readme-images/home-grid.png "Optional title")
 
 
 **Meals page**  
-Individual page where users can go through and look at pictures of meals to create and inspire.
+A dedicated page is provided for users to explore a gallery of meal pictures, serving as a source of inspiration. Notably, an engaging transition effect has been implemented, enhancing the user experience. As users scroll through the page, both text and images smoothly slide in from the side, imparting a modern aesthetic to the website.
 
 **Receipes page**  
 Individual page where users can select any of the cards, which will then show them a receipe with instructions on how to make it.

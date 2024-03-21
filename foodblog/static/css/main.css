@@ -651,6 +651,11 @@ section.show-animate .animate {
   transform: translateX(0);
 }
 
+.fa-circle-arrow-up{
+  color: #ff7b00;
+font-size: xx-large;
+}
+
 
 /* Small devices (tablets) */
 @media (min-width: 375px) {
