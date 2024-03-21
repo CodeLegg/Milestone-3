@@ -333,8 +333,8 @@ Visual Studio Code was use to create files pages and where i produced the code f
 [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)  
 Google Chrome Dev Tools was used during the testing phase to test the responsiveness of the site and to check for any bugs.
 
-[Pixabay](https://www.pixabay.com/)  
-Pixabay was used to source images used throughout the individual sports pages and overview page.
+[Foodie](https://www.foodie.com//)  
+Utilized Foodies images accessed through Dev Tools for the cards, recipes pages, and homepage design.
 
 [W3schools](https://www.w3schools.com/)  
 W3schools was used as a guide for HTML, CSS and Python basic principles.
@@ -397,14 +397,9 @@ Forking this repository will allow changes to be made without affecting the orig
 
 Bootstrap v4.4.1
 
-- Image carousels used from bootstrap.
 - Delete Modal used from bootstrap.
 
-Code Institute training material
-
-Followed front-end tutorials from [Atheros] https://www.youtube.com/@Atheroslearning for footer and overview cards.
-
-- Code referenced in html and CSS files that was inspired by Atheros learning.
+- Code Institute training material
 
 Followed tutorials from [Corey Schafer](https://www.youtube.com/@coreyms) to better understanding.
 
