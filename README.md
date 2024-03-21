@@ -243,7 +243,7 @@ Users have the option to reply on posts & comments authored by themselves or oth
 ![Comment](foodblog/static/readme-images/reply.png)
 
 **Delete modal**  
-Users can delete posts and comments once they have added them. A confirmation 'delete modal' is displayed once the user clicks the 'delete' button ONLY for posts! For comments and replies they will delete once the button has been clicked!
+Users can delete posts and comments and replies once they have added them. A confirmation 'delete modal' is displayed once the user clicks the 'delete' button
 
 ![Modal](foodblog/static/readme-images/modal.png)
 

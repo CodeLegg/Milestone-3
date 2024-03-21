@@ -69,12 +69,34 @@
     <p>{{ comment.content }}</p>
   </div>
 
-  <!-- Delete Comment Button -->
-  {% if current_user == comment.author %}
-  <form method="POST" action="{{ url_for('delete_comment', comment_id=comment.id) }}">
-    <button type="submit" class="btn btn-sm btn-danger">Delete Comment</button>
-  </form>
-  {% endif %}
+<!-- Delete Comment Button -->
+{% if current_user == comment.author %}
+<button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteCommentModal" data-comment-id="{{ comment.id }}">
+  Delete Comment
+</button>
+{% endif %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteCommentModalLabel">Delete Comment?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this comment?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form id="deleteCommentForm" method="POST" action="">
+          <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- Nested replies if applicable -->
   {% for reply in comment.replies %}
@@ -86,12 +108,35 @@
       <small><strong>{{ reply.author.favorite_food }}</strong></small>
     <p>{{ reply.content }}</p>
 
-    <!-- Delete Reply Button -->
-    {% if current_user == reply.author %}
-    <form method="POST" action="{{ url_for('delete_comment', comment_id=reply.id) }}">
-      <button type="submit" class="btn btn-sm btn-danger">Delete Reply</button>
-    </form>
-    {% endif %}
+   <!-- Delete Reply Button -->
+{% if current_user == reply.author %}
+<button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteReplyModal" data-reply-id="{{ reply.id }}">
+  Delete Reply
+</button>
+{% endif %}
+
+    <!-- Modal for deleting replies -->
+<div class="modal fade" id="deleteReplyModal" tabindex="-1" aria-labelledby="deleteReplyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteReplyModalLabel">Delete Reply?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this reply?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form id="deleteReplyForm" method="POST" action="">
+          <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   </div>
   {% endfor %}
@@ -107,6 +152,7 @@
 </div>
 {% endfor %}
 
+<script src="../static/js/script.js"></script>
 
 
 
