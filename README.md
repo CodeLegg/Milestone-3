@@ -215,49 +215,59 @@ Individual page where users can select any of the cards, which will then show th
 
 An individual page where users can go to post and interact with other users about Food. 
 
-![Receipe Cards](foodblog/static/readme-images/discussion.png)
+![Discussion](foodblog/static/readme-images/discussion.png)
 
 
 **Post feature & Quick link**  
 
 Users have the ability to share content on the discussion page and explore existing posts from other users. The most recent posts appear at the top of the page, ensuring users are promptly presented with the latest content. Quick links are conveniently placed throughout the website, facilitating easy access to posting and checking the latest updates.
 
-![Receipe Cards](foodblog/static/readme-images/post-quicklink.png)
+![New Post and Quick links ](foodblog/static/readme-images/post-quicklink.png)
 
 **Comment feature**  
 
-Users can comment on posts made by themselves or other users, comments can be deleted once they have been added. The most recent comments are populated towards the bottom of the comments section, this way users can browse the older comments towards the top and the most recent responses towards the bottom.  
+Users have the option to comment on posts authored by themselves or other users. Once added, comments can be deleted. The comments section displays the most recent comments at the top, with older comments appearing towards the bottom.
 
-![Image of comment feature](README-images/ "Optional title")
+![Comment](foodblog/static/readme-images/comment.png)
+
+**Reply feature**  
+
+Users have the option to reply on posts & comments authored by themselves or other users. Once added, comments and replies can be deleted. The comments section displays the most recent comments at the top, with older comments appearing towards the bottom.
+
+![Comment](foodblog/static/readme-images/reply.png)
 
 **Delete modal**  
-Users can delete posts and comments once they have added them. A confirmation 'delete modal' is displayed once the user clicks the 'delete' button.  
+Users can delete posts and comments once they have added them. A confirmation 'delete modal' is displayed once the user clicks the 'delete' button ONLY for posts! For comments and replies they will delete once the button has been clicked!  
 
-![Image of delete modal](README-images/ "Optional title")
+![Modal](foodblog/static/readme-images/modal.png)
 
 **My profile**  
-Users can navigate to the 'My profile' page, here they can add to their bio, change their favourite food that is displayed on their profile page. This can be viewed in any posts/comment.
 
-![Image profile page](README-images/ "Optional title")
+Users can visit the 'My profile' page, where they have the option to edit their information and update their favorite food, prominently displayed on their profile and discussion page. Furthermore, users can conveniently explore their previous posts and comments, facilitated by pagination for a seamless browsing experience. Additionally, users can click on their posts or comments to navigate directly to the corresponding unique post or comment.
+
+![Favourite Food](foodblog/static/readme-images/favourite-food.png)
+![Favourite Food](foodblog/static/readme-images/fav-food.png)
+![Posts and Comments](foodblog/static/readme-images/public-comment-post.png)
+
 
 
 **Logout**  
-Once users are finished on the site, they can click click the logout button which will take them to the home page.  
+Once users are finished on the site, they can click click the sign out button which will take them to the home page.  
 
 **Footer**  
 Users can navigate to respective social media sites that are present in the footer.
 
-![Image of footer](README-images/ "Optional title")  
+![Footer](foodblog/static/readme-images/footer.png)
 
 **Flash Messages**  
 I chose to use flash messages as a positive feedback to users whenever they made an action on the site. Everything from logging in, to adding a post to try something they aren't authorised to do.  
 
-![Image of flash message](README-images/ "Optional title")  
+![Flash image](foodblog/static/readme-images/flash.png)
 
 **Creative timestamping**  
-I decided to included a date and time that informed users when the post was posted. I think this makes it easier to remember when the post was created.
+I decided to included a date and time that informed users when the post was created and what time it was posted. I think this makes it easier to remember when the post was created.
 
-![Image of timestamp](README-images/ "Optional title")
+![Time Stamp](foodblog/static/readme-images/timestamp.png)
 
 
 ### Future Implementations
@@ -359,14 +369,14 @@ The following steps will need to be taken to deploy the application using Heroku
 
 **How to clone the repository**
 
-- Go to the (https://github.com/)  repository on GitHub.
+- Go to the (https://github.com/CodeLegg/Milestone-3)  repository on GitHub.
 - Click the "Code" button to the right of the screen, click HTTPs and copy the link there.
 - Open a GitBash terminal and navigate to the directory where you want to locate the clone.
 - On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process.  
 
 **How to Fork the repository**  
 
-- Go to the https://github.com/ repository on GitHub.
+- Go to the (https://github.com/CodeLegg/Milestone-3) repository on GitHub.
 - Click on the 'Fork' option towards the top left of the page.  
 - Click the dropdown button and click 'create a new fork'.  
 - This will bring up a page with details of the repository, fill in boxes as required.
