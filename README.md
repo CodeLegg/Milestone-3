@@ -66,7 +66,7 @@ As a professional chef aiming to showcase my culinary creations and establish my
 
 color theme of orange, black, and white combines warmth, sophistication, and simplicity to create a visually appealing and engaging aesthetic. The contrast between the boldness of orange and the neutrality of black and white adds visual interest while maintaining readability and clarity.
 
-![Image of color pallete used for the project](color-scheme.png "Colour Scheme")
+![Image of color pallete used for the project](foodblog/static/readme-images/color-scheme.png "Colour Scheme")
 
 ### Typography
 
@@ -89,7 +89,7 @@ Used a combination of imagery from Pixabay (See media below) and an image that i
 
 
 ### Wireframes
-[text](foodblog/static/readme-images/biteburst-wireframes.pdf)
+[BiteBurst Wireframes](foodblog/static/readme-images/biteburst-wireframes.pdf)
 
 ### Data Model  
 
