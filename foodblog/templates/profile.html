@@ -84,9 +84,9 @@
             {% for page_num in user_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_num %}
             {% if user_posts.page == page_num %}
-            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
+            <a href="{{ url_for('profile', posts_page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
             {% else %}
-            <a href="{{ url_for('profile', page=page_num) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
+            <a href="{{ url_for('profile', posts_page=page_num) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
             {% endif %}
             {% else %}
             <span class="btn btn-outline-pag mb-4 disabled">...</span>
@@ -100,7 +100,7 @@
         <legend class="border-bottom mb-4">Comment Information</legend>
 
 <!-- Display user's comments -->
-{% for comment in user_comments %}
+{% for comment in user_comments.items %}
     {% if comment.post %}
         <a class="article-title" href="{{ url_for('post', post_id=comment.post.id) }}">
             <div class="comment">
@@ -115,14 +115,14 @@
 {% endfor %}
 
 
-      <!-- Pagination for comments -->
+<!-- Pagination for comments -->
 <div class="pagination">
     {% for page_num in user_comments.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
         {% if page_num %}
             {% if user_comments.page == page_num %}
                 <a href="{{ url_for('profile', comments_page=page_num) }}" class="btn btn-pag mb-4">{{ page_num }}</a>
             {% else %}
-                <a href="{{ url_for('profile', comments_page=page_num, page=page) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
+                <a href="{{ url_for('profile', comments_page=page_num, posts_page=posts_page) }}" class="btn btn-outline-pag mb-4">{{ page_num }}</a>
             {% endif %}
         {% else %}
             <span class="btn btn-outline-pag mb-4 disabled">...</span>

@@ -116,16 +116,23 @@ def profile():
         form.favorite_food.data = current_user.favorite_food
 
     # Paginate user's posts
+    posts_page = request.args.get("posts_page", 1, type=int)
     user_posts = current_user.posts.order_by(Post.date_posted.desc()).paginate(
-        page=page, per_page=1
+        page=posts_page, per_page=1
     )
 
     # Paginate user's comments
-    comments_per_page = 1  # Adjust this value as needed
     comments_page = request.args.get("comments_page", 1, type=int)
-    user_comments = Comment.query.filter_by(author=current_user).paginate(
-        page=comments_page, per_page=comments_per_page, error_out=False
+    user_comments = current_user.comments.order_by(Comment.date_posted.desc()).paginate(
+        page=comments_page, per_page=1
     )
+
+    # # Paginate user's comments
+    # comments_per_page = 1  # Adjust this value as needed
+    # comments_page = request.args.get("comments_page", 1, type=int)
+    # user_comments = Comment.query.filter_by(author=current_user).paginate(
+    #     page=comments_page, per_page=comments_per_page, error_out=False
+    # )
 
     return render_template(
         "profile.html",

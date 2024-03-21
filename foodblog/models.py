@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     favorite_food = db.Column(db.String(60), nullable=False)
     posts = relationship('Post', backref='author', lazy='dynamic')
-    comments = db.relationship("Comment", backref="author", lazy=True)
+    comments = db.relationship("Comment", backref="author", lazy='dynamic')
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.favorite_food}')"
@@ -29,7 +29,7 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    comments = db.relationship("Comment", backref="post", lazy=True)
+    comments = db.relationship("Comment", backref="post", lazy='dynamic')
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
@@ -45,7 +45,7 @@ class Comment(db.Model):
         db.Integer, db.ForeignKey("comment.id"), nullable=True
     )
     replies = db.relationship(
-        "Comment", backref=db.backref("parent_comment", remote_side=[id]), lazy=True
+        "Comment", backref=db.backref("parent_comment", remote_side=[id]), lazy='dynamic'
     )
 
     def __repr__(self):
