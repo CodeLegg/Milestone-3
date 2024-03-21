@@ -47,47 +47,49 @@ Link to live site: https://pythonlogin-017f233d45cf.herokuapp.com/
 
 ### User Stories
 
-**User Story 1:** 
+**User Story 1**
+As a passionate food enthusiast, I want to join a food community where I can easily share my cooking experiences, recipes, and culinary adventures. I hope to connect with like-minded individuals, learn new cooking techniques, and discover exciting food trends.
 
+**User Story 2**
+As someone who enjoys exploring different cuisines, I'm eager to find a platform that offers a diverse range of food content. I want to read insightful reviews, discover hidden gems in my area, and participate in discussions about food culture and dining experiences.
 
+**User Story 3**
+As a home cook looking to expand my culinary skills, I'm seeking a user-friendly platform where I can access a variety of cooking tutorials, tips, and tricks. I hope to find inspiration for new dishes, learn from experienced chefs, and share my own cooking creations with a supportive community.
 
-**User Story 2:** 
-
-
-
-**User Story 3:** 
-
-
-
-**User Story 4:** 
-
+**User Story 4**
+As a professional chef aiming to showcase my culinary creations and establish my brand, I'm excited to utilize Suport as a platform to share my expertise and interact with a diverse audience. I hope to engage with food enthusiasts, receive feedback on my dishes, and collaborate with other chefs to elevate my culinary career.
 
 
 ## Design  
 
 ### Colour Scheme
 
+color theme of orange, black, and white combines warmth, sophistication, and simplicity to create a visually appealing and engaging aesthetic. The contrast between the boldness of orange and the neutrality of black and white adds visual interest while maintaining readability and clarity.
 
-
-
+![Image of color pallete used for the project](color-scheme.png "Colour Scheme")
 
 ### Typography
 
+The font used throughout the site is 'Poppins', I have chosen this font because I consider it to be clean and easy to read.  
+
 
 ### Layout
+
+The layout of the BiteBurst website is built using the Bootstrap framework, which provides a responsive grid system that allows the website to adapt to different screen sizes and devices. The use of a grid system helps to create a consistent layout on necessary pages of the website, which makes navigation and exploration more intuitive for visitors.  
 
 
 
 ### Accessibility  
 
+The site has scored highly in terms of accessibility, I have included alt text descriptions for all images to provide context and information to visually impaired users, Used contrasting colours to enhance accessibility.  
 
- 
 
 ### Imagery  
+Used a combination of imagery from Pixabay (See media below) and an image that i had taken myself. Images are all of a similar size and quality for consistency throughout the site.  
 
 
 ### Wireframes
-
+[text](foodblog/static/readme-images/biteburst-wireframes.pdf)
 
 ### Data Model  
 
