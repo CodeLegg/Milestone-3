@@ -232,9 +232,9 @@ def delete_comment(comment_id):
         abort(403)
 
     # Detach the comment from the session before deletion
-    db.session.expunge(comment)
+    db.session.expunge(user_comment)
 
-    db.session.delete(comment)
+    db.session.delete(user_comment)
     db.session.commit()
     flash("Your comment has been deleted!", "success")
 
