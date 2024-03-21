@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Title -->
     {% if title %}
     <title>BiteBurst - {{ title }}</title>
@@ -90,7 +90,7 @@
     {% if request.endpoint not in ['home', 'meals', 'receipes', 'card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9', 'card10', 'card11', 'card12'] %}
 
 
-    <main role="main" class="container mt-3">
+    <main class="container mt-3">
         <div class="row">
             <div class="col-md-8">
                 {% endif %}
