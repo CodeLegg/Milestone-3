@@ -168,17 +168,20 @@ Flash messages serve to communicate the outcome of user actions, providing feedb
 ### General features
 
 **Sign up**  
+
 Users have the ability to sign up, and must choose their favourite food.
 
 ![Image of sign-up page](foodblog/static/readme-images/sign-up.png "Optional title")
 
 **Log in**  
+
 Users can login using the information that they provided at the sign up process.
 
 ![Image of login page](foodblog/static/readme-images/login.png "Optional title")
 
 **Home page**  
-Users are presented with an overview page that includes interactive images of 12 Food card receipes that the site currently facilitates (Fish Receipes, Chicken Receipes, Chinese Receipes, Taco Receipes, Sweet Treat Receipes, Baking Receipes, Meat Receipes, Pasta Receipes). When users hover over the images, they scale up slightly causing the image to be zoom out a little, leading to a better user experience.
+
+Users are greeted with a homepage featuring interactive images showcasing 12 food card recipes available on the site, including Fish Recipes, Chicken Recipes, Chinese Recipes, Taco Recipes, Sweet Treat Recipes, Baking Recipes, Meat Recipes, and Pasta Recipes. When users hover over the images, they subtly scale up, providing a zoom-out effect for an enhanced user experience.
 
 ![Image of home page](foodblog/static/readme-images/home-grid.png "Optional title")
 
@@ -188,6 +191,7 @@ A dedicated page is provided for users to explore a gallery of meal pictures, se
 [![Video to showcase the transistion](https://img.youtube.com/vi/KR_4FDU7rsU/0.jpg)](https://www.youtube.com/watch?v=KR_4FDU7rsU)
 
 **Receipes page**  
+
 Individual page where users can select any of the cards, which will then show them a receipe with instructions on how to make it.
 
 ![Receipe Cards](foodblog/static/readme-images/card1.png)
