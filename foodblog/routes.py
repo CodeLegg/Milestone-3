@@ -100,9 +100,6 @@ def profile():
     page = request.args.get("page", 1, type=int)
     form = UpdateAccountForm()
 
-    # Fetch the user's comment
-    comment = Comment.query.filter_by(author=current_user).all()
-
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.email = form.email.data
@@ -135,8 +132,7 @@ def profile():
         title="Profile",
         form=form,
         user_posts=user_posts,
-        comment=comment,
-        user_comments=user_comments,
+        user_comments=user_comments,  # Use user_comments consistently
     )
 
 
