@@ -179,18 +179,53 @@ Users are presented with an overview page that includes interactive images of 12
 **Meals page**  
 A dedicated page is provided for users to explore a gallery of meal pictures, serving as a source of inspiration. Notably, an engaging transition effect has been implemented, enhancing the user experience. As users scroll through the page, both text and images smoothly slide in from the side, imparting a modern aesthetic to the website.
 
+[![Video to showcase the transistion](https://img.youtube.com/vi/KR_4FDU7rsU/0.jpg)](https://www.youtube.com/watch?v=KR_4FDU7rsU)
+
+
 **Receipes page**  
 Individual page where users can select any of the cards, which will then show them a receipe with instructions on how to make it.
 
+![Receipe Cards](foodblog/static/readme-images/card1.png)
+
+![Receipe Cards](foodblog/static/readme-images/card2.png)
+
+![Receipe Cards](foodblog/static/readme-images/card3.png)
+
+![Receipe Cards](foodblog/static/readme-images/card4.png)
+
+![Receipe Cards](foodblog/static/readme-images/card5.png)
+
+![Receipe Cards](foodblog/static/readme-images/card6.png)
+
+![Receipe Cards](foodblog/static/readme-images/card7.png)
+
+![Receipe Cards](foodblog/static/readme-images/card8.png)
+
+![Receipe Cards](foodblog/static/readme-images/card9.png)
+
+![Receipe Cards](foodblog/static/readme-images/card10.png)
+
+![Receipe Cards](foodblog/static/readme-images/card11.png)
+
+![Receipe Cards](foodblog/static/readme-images/card12.png)
+
+
+
 **Discussion**  
-Individual page where users can go to post and interact with other users about Food.  
 
-**Post feature**  
-Users can post content onto the discussion page, they can also browse other posts that users have already posted. The most recent posts will populate at the top of the page so that users are immediately displayed with the most recent posts.  
+An individual page where users can go to post and interact with other users about Food. 
 
-![Image of post feature](README-images/ "Optional title")
+![Receipe Cards](foodblog/static/readme-images/discussion.png)
+
+
+**Post feature & Quick link**  
+
+Users have the ability to share content on the discussion page and explore existing posts from other users. The most recent posts appear at the top of the page, ensuring users are promptly presented with the latest content. Quick links are conveniently placed throughout the website, facilitating easy access to posting and checking the latest updates.
+
+![Receipe Cards](foodblog/static/readme-images/post-quicklink.png)
 
 **Comment feature**  
+
 Users can comment on posts made by themselves or other users, comments can be deleted once they have been added. The most recent comments are populated towards the bottom of the comments section, this way users can browse the older comments towards the top and the most recent responses towards the bottom.  
 
 ![Image of comment feature](README-images/ "Optional title")

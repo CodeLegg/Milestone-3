@@ -93,6 +93,7 @@ from flask import request
 
 from flask import render_template
 
+
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
@@ -129,11 +130,14 @@ def profile():
         page=comments_page, per_page=comments_per_page, error_out=False
     )
 
-
     return render_template(
-        "profile.html", title="Profile", form=form, user_posts=user_posts, comment=comment, user_comments=user_comments
+        "profile.html",
+        title="Profile",
+        form=form,
+        user_posts=user_posts,
+        comment=comment,
+        user_comments=user_comments,
     )
-
 
 
 @app.route("/layout")
@@ -174,7 +178,11 @@ def latest_post():
 def post(post_id):
     post = Post.query.get_or_404(post_id)
 
-    comments = Comment.query.filter_by(post_id=post.id, parent_comment_id=None).all()
+    comments = (
+        Comment.query.filter_by(post_id=post.id, parent_comment_id=None)
+        .order_by(Comment.date_posted.desc())
+        .all()
+    )
 
     comment_form = CommentForm()
     reply_form = ReplyForm()
@@ -279,11 +287,11 @@ def user_posts(username):
     page = request.args.get("page", 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
     posts = (
-        Post.query.filter_by(author=user)\
-        .order_by(Post.date_posted.desc())\
+        Post.query.filter_by(author=user)
+        .order_by(Post.date_posted.desc())
         .paginate(page=page, per_page=5)
     )
-    return render_template("user_posts.html", posts=posts, user=user )
+    return render_template("user_posts.html", posts=posts, user=user)
 
 
 # RECEIPE PAGES
