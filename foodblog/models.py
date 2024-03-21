@@ -45,7 +45,7 @@ class Comment(db.Model):
         db.Integer, db.ForeignKey("comment.id"), nullable=True
     )
     replies = db.relationship(
-        "Comment", backref=db.backref("parent_comment", remote_side=[id]), lazy='dynamic'
+        "Comment", backref=db.backref("parent_comment", remote_side=[id]), lazy=True
     )
 
     def __repr__(self):
