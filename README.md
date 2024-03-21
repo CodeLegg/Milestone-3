@@ -4,7 +4,7 @@ BiteBurst is a dynamic web platform that brings food enthusiasts together in a v
 
 This is Milestone Project 3 for a Level 5 Diploma in Web Application Development.
 
-![alt text](README-images/ "Website Mockup")
+![Website Mockup](foodblog/static/readme-images/website-mockup.png "Website Mockup")
 
 Link to live site: https://pythonlogin-017f233d45cf.herokuapp.com/
 
@@ -226,9 +226,10 @@ An individual page where users can go to post and interact with other users abou
 
 **Post feature & Quick link**
 
-Users have the ability to share content on the discussion page and explore existing posts from other users. The most recent posts appear at the top of the page, ensuring users are promptly presented with the latest content. Quick links are conveniently placed throughout the website, facilitating easy access to posting and checking the latest updates.
+Users have the ability to share content on the discussion page and explore existing posts from other users. The most recent posts appear at the top of the page, ensuring users are promptly presented with the latest content. Quick links are conveniently placed throughout the website, facilitating easy access to posting, checking the latest updates, and editing their own posts by clicking on them.
 
 ![New Post and Quick links ](foodblog/static/readme-images/post-quicklink.png)
+![Update Post ](foodblog/static/readme-images/update-post.png)
 
 **Comment feature**
 
