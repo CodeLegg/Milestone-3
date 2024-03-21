@@ -132,7 +132,7 @@ def profile():
         title="Profile",
         form=form,
         user_posts=user_posts,
-        user_comments=user_comments,  # Use user_comments consistently
+        user_comments=user_comments,
     )
 
 
@@ -225,10 +225,10 @@ def post(post_id):
 @app.route("/comment/<int:comment_id>/delete", methods=["POST"])
 @login_required
 def delete_comment(comment_id):
-    comment = Comment.query.get_or_404(comment_id)
+    user_comment = Comment.query.get_or_404(comment_id)
 
     # Check if the current user is the author of the comment
-    if current_user != comment.author:
+    if current_user != user_comment.author:
         abort(403)
 
     # Detach the comment from the session before deletion
@@ -239,7 +239,7 @@ def delete_comment(comment_id):
     flash("Your comment has been deleted!", "success")
 
     # Redirect back to the post page
-    return redirect(url_for("post", post_id=comment.post_id))
+    return redirect(url_for("post", post_id=user_comment.post_id))
 
 
 @app.route("/post/<int:post_id>/update", methods=["GET", "POST"])
