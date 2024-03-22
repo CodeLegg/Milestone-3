@@ -88,16 +88,9 @@ def logout():
     return redirect(url_for("home"))
 
 
-from flask import request
-
-
-from flask import render_template
-
-
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
-    page = request.args.get("page", 1, type=int)
     form = UpdateAccountForm()
 
     if form.validate_on_submit():
@@ -118,7 +111,7 @@ def profile():
     # Paginate user's posts
     posts_page = request.args.get("posts_page", 1, type=int)
     user_posts = current_user.posts.order_by(Post.date_posted.desc()).paginate(
-        page=posts_page, per_page=1
+      page=posts_page, per_page=1
     )
 
     # Paginate user's comments

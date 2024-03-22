@@ -8,7 +8,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 /* MAIN STYLES */
 main {
   flex: 1; /* This will make sure it takes up all available space */
@@ -35,12 +34,13 @@ footer ul {
   justify-content: center;
   align-items: center;
   list-style: none;
- padding-block: 20px;
+  padding-block: 20px;
   gap: 120px;
 }
 
-.footer-white-icon{
+.footer-white-icon {
   width: 50px;
+  height: 50px;
   padding: 5px;
 }
 
@@ -49,7 +49,6 @@ header {
   background-color: #171717;
   border: none;
 }
-
 
 .navbar-nav a {
   color: #ffffff;
@@ -88,7 +87,7 @@ header {
   font-size: 40px;
 }
 
-.height{
+.height {
   height: 100vh;
 }
 .logo:hover {
@@ -125,7 +124,7 @@ header {
   border-radius: 5px;
 }
 
-.create-post{
+.create-post {
   color: #fff;
   text-decoration: none;
 }
@@ -211,7 +210,6 @@ header {
   grid-gap: 15px;
   justify-content: center;
   grid-auto-rows: minmax(500px, auto);
-  
 }
 .grid-container a {
   text-decoration: none;
@@ -219,15 +217,13 @@ header {
 
 .grid-item {
   /* Your existing styles for grid items */
-  transition: transform 0.3s ease-in-out; /* Add transition for smooth scaling */  background-color: #a71d2a;
-
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth scaling */
+  background-color: #a71d2a;
 }
 
 .grid-item:hover {
   transform: scale(1.005); /* Scale up to 1.1 on hover */
 }
-
-
 
 .grid-item:nth-of-type(1) {
   grid-column: 1 / 3;
@@ -655,11 +651,10 @@ section.show-animate .animate {
   transform: translateX(0);
 }
 
-.fa-circle-arrow-up{
+.fa-arrow-circle-up {
   color: #fff;
-font-size: 70px;
+  font-size: 70px;
 }
-
 
 /* Small devices (tablets) */
 @media (min-width: 375px) {
@@ -667,8 +662,8 @@ font-size: 70px;
     font-size: 60px;
     font-weight: 900;
     color: white;
-    
-}}
+  }
+}
 
 /* Medium devices (desktops) */
 @media (min-width: 768px) {
@@ -676,8 +671,8 @@ font-size: 70px;
     font-size: 80px;
     font-weight: 900;
     color: white;
-    
-}}
+  }
+}
 
 /* Large devices (desktops) */
 @media (min-width: 992px) {
@@ -834,4 +829,3 @@ font-size: 70px;
     font-size: 1.5rem;
   }
 }
-

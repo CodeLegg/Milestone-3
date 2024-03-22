@@ -1,7 +1,12 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms import (
+    StringField,
+    PasswordField,
+    SubmitField,
+    BooleanField,
+    TextAreaField)
 from wtforms.validators import (
     DataRequired,
     Length,
@@ -27,8 +32,11 @@ class RegistrationForm(FlaskForm):
             DataRequired(),
             Length(min=8, max=20),
             Regexp(
-                regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
-                message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.",
+                regex="^(?=.*[a-z])(?=.*[A-Z])\
+                (?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
+                message="Password must contain at \
+                least one lowercase letter, \
+                one uppercase letter, one digit, and one special character.",
             ),
         ],
     )
@@ -40,8 +48,11 @@ class RegistrationForm(FlaskForm):
             EqualTo("password"),
             Length(min=8, max=20),
             Regexp(
-                regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
-                message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.",
+                regex="^(?=.*[a-z])(?=.*[A-Z]) \
+                (?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
+                message="Password must contain \
+                at least one lowercase letter, \
+                one uppercase letter, one digit, and one special character.",
             ),
         ],
     )
@@ -81,8 +92,11 @@ class LoginForm(FlaskForm):
             DataRequired(),
             Length(min=8, max=20),
             Regexp(
-                regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
-                message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.",
+                regex="^(?=.*[a-z])(?=.*[A-Z])\
+                (?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
+                message="Password must contain at \
+                least one lowercase letter, \
+                one uppercase letter, one digit, and one special character.",
             ),
         ],
     )
@@ -130,10 +144,14 @@ class UpdateAccountForm(FlaskForm):
 
 class PostForm(FlaskForm):
     # TITLE
-    title = StringField("Title", validators=[DataRequired(), Length(min=10)])
+    title = StringField\
+        ("Title", validators=[DataRequired(), Length(min=10)])
+
     # CONTENT
-    content = TextAreaField("Content", validators=[DataRequired(), Length(min=10)])
+    content = TextAreaField\
+        ("Content", validators=[DataRequired(), Length(min=10)])
     submit = SubmitField("Post")
+
 
 class CommentForm(FlaskForm):
     content = TextAreaField("", validators=[DataRequired()])
@@ -155,8 +173,11 @@ class DeleteCommentForm(FlaskForm):
             DataRequired(),
             Length(min=8, max=20),
             Regexp(
-                regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
-                message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.",
+                regex="^(?=.*[a-z])(?=.*[A-Z]) \
+                (?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
+                message="Password must contain at least one lowercase \
+                      letter, one uppercase letter, \
+                      one digit, and one special character.",
             ),
         ],
     )
@@ -168,8 +189,11 @@ class DeleteCommentForm(FlaskForm):
             EqualTo("password"),
             Length(min=8, max=20),
             Regexp(
-                regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
-                message="Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.",
+                regex="^(?=.*[a-z])(?=.*[A-Z]) \
+                (?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{8,})",
+                message="Password must contain at least one lowercase letter, \
+                    one uppercase letter, one digit, \
+                    and one special character.",
             ),
         ],
     )

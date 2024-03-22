@@ -2,8 +2,9 @@
 
 
 {% block content %}
+<h2 class="container"> {{ post.author.username }}'s Post</h2>
 
-<article class="media content-section">
+<article class="media content-section container">
   <div class="media-body">
     <div class="article-metadata">
       <small class="text-muted">by</small>
@@ -49,9 +50,9 @@
 </div>
 
 <!-- post.html -->
-<h2>Comments</h2>
+<h2 class="container">Comments</h2>
 <!-- Comment Form -->
-<form class="content-section" method="POST" action="{{ url_for('post', post_id=post.id) }}">
+<form class="content-section container" method="POST" action="{{ url_for('post', post_id=post.id) }}">
   {{ comment_form.hidden_tag() }}
   {{ comment_form.content(size=20, class="custom-textarea", placeholder="Your comment goes here...") }} <br>
   {{ comment_form.submit (class="btn-update")}}
