@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<h1 class="page-title underline mt-3">Discussion Page</h1>
+
+<div class="m-4 d-flex justify-content-center">
+    <a class="text-decoration-none btn-form" href="{{ url_for('new_post')}}">Create Post</a>
+</div>
+
 {% for post in posts.items %}
 <article class="media content-section container col-md-8 mt-4">
     <div class="media-body">
@@ -21,16 +27,21 @@
     </div>
 </article>
 {% endfor %}
-{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-{% if page_num %}
-{% if posts.page == page_num %}
-<a class="btn btn-pag mb-4" href="{{ url_for('discussion', page=page_num)}}">{{ page_num }}</a>
-{% else %}
-<a class="btn btn-outline-pag mb-4" href="{{ url_for('discussion', page=page_num)}}">{{ page_num }}</a>
-{% endif %}
-{% else %}
-...
-{% endif %}
-{% endfor %}
+
+<div class="d-flex justify-content-center">
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+    {% if posts.page == page_num %}
+    <a class="btn btn-pag mb-4" href="{{ url_for('discussion', page=page_num)}}">{{ page_num }}</a>
+    {% else %}
+    <span class="pagination-gap">&nbsp;</span>
+    <a class="btn btn-outline-pag mb-4" href="{{ url_for('discussion', page=page_num)}}">{{ page_num }}</a>
+    <span class="pagination-gap">&nbsp;</span>
+    {% endif %}
+    {% else %}
+    ...
+    {% endif %}
+    {% endfor %}
+</div>
 
 {% endblock content %}

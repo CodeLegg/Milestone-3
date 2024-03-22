@@ -87,6 +87,9 @@ header {
   font-size: 40px;
 }
 
+.height{
+  height: 100vh;
+}
 .logo:hover {
   color: #ff7b00;
 }
@@ -119,6 +122,11 @@ header {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+.create-post{
+  color: #fff;
+  text-decoration: none;
 }
 .btn-form:hover {
   background-color: #bc5b00;

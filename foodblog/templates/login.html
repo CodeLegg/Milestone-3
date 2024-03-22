@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="content_section">
+<div class="content_section container">
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
@@ -63,7 +63,7 @@
         </div>
     </form>
 </div>
-<div class="border-top pt-3">
+<div class="border-top pt-3 d-flex justify-content-center align-items-center">
     <small class="text-muted">
         Need an account? <a class="ml-2" href="{{ url_for('register')}}">Sign Up Now</a>
     </small>
