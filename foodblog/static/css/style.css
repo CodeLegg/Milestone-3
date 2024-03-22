@@ -663,6 +663,11 @@ section.show-animate .animate {
     font-weight: 900;
     color: white;
   }
+
+  .col-md-12{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 /* Medium devices (desktops) */

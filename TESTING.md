@@ -23,31 +23,29 @@ The site has been run through [W3C](https://validator.w3.org/), [WC3 CSS](https:
 
 **HTML** 
 
-![Image of validator testing](foodblog/static/readme-images/sign-up.png "Optional title")
+![Image of validator testing](foodblog/static/readme-images/w3-validator.png "Optional title")
 
 No warnings/errors were present when running my site through W3C validator.  
 
 **CSS**
 
-![Image of CSS validator testing](README-images/css-test.png "Optional title")  
+![Image of CSS validator testing](foodblog/static/readme-images/css-validation.png "Optional title")  
 
 No errors were present when running my site through W3C CSS validator.  
-
-![Image of CSS validator warnings](README-images/css-warnings.png "Optional title")  
-
-There were 9 warnings, none of which affect accessibility or functionality of site. I intend to implement changes in future.  
+  
 
 **Javascript**
 
-![Image of jshint validator testing](README-images/js-testing.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/js-lint.png "Optional title")  
 
 There were no errors when running javascript file through JShint validator.  
 
 **Python**
 
-I had to correct some errors regarding characters exceeding 79 on views.py, auth.py, init.py and test_views.py. There are no errors when running python files through pep8 validator, There were also no errors present in the terminal or console.  
+I ran my Python code through a PEP (Python Enhancement Proposal) Linter for continuous integration (CI) and encountered character errors in two files. Despite my efforts to shorten the lines, it led to syntax errors in my Integrated Development Environment (IDE).
 
-![Image of pep8 validator testing](README-images/pep8-py.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/py-lint.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/py-lint-error.png "Optional title")  
 
 
 ## Lighthouse Testing  
