@@ -67,7 +67,7 @@
     <small><strong>{{ comment.author.favorite_food }}</strong></small>
     <hr class="mt-0">
     <p>{{ comment.content }}</p>
-  
+  </div>
 
 <!-- Delete Comment Button -->
 {% if current_user == comment.author %}
@@ -75,7 +75,7 @@
   Delete Comment
 </button>
 {% endif %}
-</div>
+
 <!-- Modal -->
 <div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">

@@ -50,47 +50,46 @@ I ran my Python code through a PEP (Python Enhancement Proposal) Linter for cont
 
 ## Lighthouse Testing  
 
-All pages passed lighthouse testing scoring particularly highly throughout.  
+All pages passed lighthouse testing scoring average/good scores 
 
 **Sign up**  
-Desktop lighthouse score [here](README-images/sign-up-desktop-lighthouse.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/sign-up-mobile-lighthouse.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-signup.png "Optional title")  
 
-**Sign in**  
-Desktop lighthouse score [here](README-images/login-desktop-lighthouse.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/login-mobile-lighthouse.png "Optional title")  
+**Log in**  
+
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-login.png "Optional title")  
+
 
 **Overview**  
-Desktop lighthouse score [here](README-images/overview-desktop-lighthouse.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/overview-mobile-lighthouse.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse.png "Optional title")  
 
-**Football**  
-Desktop lighthouse score [here](README-images/football-desktop-lighthouse.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/overview-mobile-lighthouse.png "Optional title")  
+**Meals**  
 
-**Formula 1**  
-Desktop lighthouse score [here](README-images/f1-desktop-lighthouse.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-meals.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/f1-mobile-lighthouse.png "Optional title")  
 
-**Rugby**  
-Desktop lighthouse score [here](README-images/rugby-desktop-lighthouse.png "Optional title")  
+**Receipes**  
 
-Mobile lighthouse score [here](README-images/rugby-mobile-lighthouse.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-receipes.png "Optional title")  
+
+
+**Receipes blog page**  
+
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-receipe-page.png "Optional title")  
+
 
 **Profile**  
-Desktop lighthouse score [here](README-images/profile-desktop-lighthouse.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/profile-mobile-lighthouse.png "Optional title")  
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-profile.png "Optional title")  
 
-**All Users**  
-Desktop lighthouse score [here](README-images/all-users-desktop-lighthouse.png "Optional title")  
 
-Mobile lighthouse score [here](README-images/all-users-mobile-lighthouse.png "Optional title")  
+**Disscussion page**  
+
+![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-chat.png "Optional title")  
 
 
 ## Browser Compatibility 
@@ -120,12 +119,7 @@ Mobile lighthouse score [here](README-images/all-users-mobile-lighthouse.png "Op
 During the manual testing, I tested the sites functionality, usability and responsiveness.  
 
 I have kept the basic functionality of the site the same throughout the entire project. Initially leaning towards a note/review site, moving towards a social media site that allows users to create, edit and delete posts.  
-
-**Overview page**  
-
-**Sports pages**
-
-**Profile**  
+ 
 
 #### Functionality
 
@@ -166,11 +160,15 @@ Throughout the development phase of the site, I came across a variety of differe
 
 **resolved**
 
+Had issue with layout.html  not rendering due to a typo in html file name, now fixed.  
 
 
 **Unresolved**
 
+-PEP8 Linter caling out errors
+
+- footer will not sit at the bottom of the screen.  This is due to a css issue that needs to be fixed in order for the footer to stay at the bottom.
 
   ![comment box styling bug](README-images/comment-box.png "Optional title")  
 
-[Back to README.md](https://github.com/ojalaw/suport_MP3)
+[Back to README.md](https://github.com/CodeLegg/Milestone-3)
