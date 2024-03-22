@@ -35,13 +35,13 @@ footer ul {
   justify-content: center;
   align-items: center;
   list-style: none;
-  letter-spacing: 20px;
-  font-size: 30px;
-  margin-bottom: 0;
+ padding-block: 20px;
+  gap: 120px;
 }
-footer i {
-  color: white;
-  padding: 20px;
+
+.footer-white-icon{
+  width: 50px;
+  padding: 5px;
 }
 
 /* NAVIGATION STYLES */
@@ -49,6 +49,7 @@ header {
   background-color: #171717;
   border: none;
 }
+
 
 .navbar-nav a {
   color: #ffffff;
