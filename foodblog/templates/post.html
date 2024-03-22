@@ -58,8 +58,8 @@
 </form>
 
 {% for comment in comments %}
-<div class="comment">
-  <div>
+<div class="comment content-section container">
+  <div class="content-section container" >
     <small> by <strong>{{ comment.author.username }}</strong> on
       {{ comment.date_posted.strftime('%Y-%m-%d %H:%M:%S')}}</small>
     <hr class="mt-0 mb-0">
@@ -67,7 +67,7 @@
     <small><strong>{{ comment.author.favorite_food }}</strong></small>
     <hr class="mt-0">
     <p>{{ comment.content }}</p>
-  </div>
+  
 
 <!-- Delete Comment Button -->
 {% if current_user == comment.author %}
@@ -75,7 +75,7 @@
   Delete Comment
 </button>
 {% endif %}
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
