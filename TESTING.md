@@ -54,42 +54,42 @@ All pages passed lighthouse testing scoring average/good scores
 
 **Sign up**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-signup.png "Optional title")  
+![Signup](foodblog/static/readme-images/lighthouse-signup.png "Optional title")  
 
 
 **Log in**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-login.png "Optional title")  
+![Login](foodblog/static/readme-images/lighthouse-login.png "Optional title")  
 
 
 **Overview**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse.png "Optional title")  
+![Overview](foodblog/static/readme-images/lighthouse.png "Optional title")  
 
 
 **Meals**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-meals.png "Optional title")  
+![Meals](foodblog/static/readme-images/lighthouse-meals.png "Optional title")  
 
 
 **Receipes**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-receipes.png "Optional title")  
+![Receipes](foodblog/static/readme-images/lighthouse-receipes.png "Optional title")  
 
 
 **Receipes blog page**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-receipe-page.png "Optional title")  
+![Receipes blog page](foodblog/static/readme-images/lighthouse-receipe-page.png "Optional title")  
 
 
 **Profile**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-profile.png "Optional title")  
+![Profile](foodblog/static/readme-images/lighthouse-profile.png "Optional title")  
 
 
 **Disscussion page**  
 
-![Image of jshint validator testing](foodblog/static/readme-images/lighthouse-chat.png "Optional title")  
+![Disscussion](foodblog/static/readme-images/lighthouse-chat.png "Optional title")  
 
 
 ## Browser Compatibility 
@@ -167,8 +167,11 @@ Had issue with layout.html  not rendering due to a typo in html file name, now f
 
 -PEP8 Linter caling out errors
 
-- footer will not sit at the bottom of the screen.  This is due to a css issue that needs to be fixed in order for the footer to stay at the bottom.
+- footer will not sit at the bottom of the screen.  This is due to a css issue that needs to be fixed in order for the footer to stay at the bottom. 
 
-  ![comment box styling bug](README-images/comment-box.png "Optional title")  
+-footer icons broken on update posts route
+
+![Disscussion](foodblog/static/readme-images/footer-broken.png "Optional title")  
+
 
 [Back to README.md](https://github.com/CodeLegg/Milestone-3)
