@@ -107,37 +107,37 @@ Consistency reigns in my wireframes from inception to completion. I envisioned a
 
 - One to Many.
 - Each user can have multiple posts.
-- The user object will have a `posts` property to query all related posts. This allows users to create and manage their own posts.
+- The user object will have a posts property to query all related posts. This allows users to create and manage their own posts.
 
 **Post to User**
 
 - Many to One.
 - Each post belongs to one user.
-- The post object will have a `user` property to query the related user object. This associates each post with its author.
+- The post object will have a user property to query the related user object. This associates each post with its author.
 
 **Post to Comment**
 
 - One to Many.
 - Each post can have multiple comments.
-- The post object will have a `comments` property to access all comments related to it.
+- The post object will have a comments property to access all comments related to it.
 
 **Comment to Post**
 
 - Many to One.
 - Each comment belongs to one post.
-- The comment object will have a `post` property to access the post it belongs to. This allows comments to be associated with specific posts.
+- The comment object will have a post property to access the post it belongs to. This allows comments to be associated with specific posts.
 
 **User to Comments**
 
 - One to Many.
 - Each user can make many comments.
-- The user object will have a `comments` property to fetch all comments authored by that user.
+- The user object will have a comments property to fetch all comments authored by that user.
 
 **Comment to User**
 
 - Many to One.
 - Each comment is authored by one user.
-- The comment object will have a `user` property to access the user who authored it. This links comments to their respective authors.
+- The comment object will have a user property to access the user who authored it. This links comments to their respective authors.
 
 ### Security
 

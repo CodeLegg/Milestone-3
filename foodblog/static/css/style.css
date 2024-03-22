@@ -8,13 +8,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* BODY STYLES */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
+
 /* MAIN STYLES */
 main {
   flex: 1; /* This will make sure it takes up all available space */
@@ -199,7 +193,7 @@ header {
 .home-page {
   background-color: #171717;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .grid-container {
@@ -208,6 +202,7 @@ header {
   grid-gap: 15px;
   justify-content: center;
   grid-auto-rows: minmax(500px, auto);
+  
 }
 .grid-container a {
   text-decoration: none;
